@@ -1,0 +1,52 @@
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, total={5in, 10in}]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{newclude}
+\usepackage{graphicx}
+\usepackage{parskip}
+\usepackage{listings}
+\usepackage{color}
+\usepackage[hyphens]{url}
+\usepackage{xspace}
+\usepackage{textcomp}
+\usepackage{titlesec}
+\usepackage[comma,authoryear]{natbib}
+\usepackage[titletoc,toc,page]{appendix}
+
+% Set chapter title size
+\titleformat{\chapter}{\normalfont\huge\bfseries}{\thechapter.}{20pt}{\Huge}
+
+% Line spacing
+\renewcommand{\baselinestretch}{1.1}
+
+% Set assets folder
+\graphicspath{{assets/}}
+
+% Enable syntax highlighting
+\lstset {
+    tabsize=4,
+    language=c++,
+    basicstyle=\scriptsize,
+    upquote=true,
+    %aboveskip={1.5\baselineskip},
+    %belowskip={1.5\baselineskip},
+    columns=fixed,
+    showstringspaces=false,
+    extendedchars=true,
+    numbers=left,
+    stepnumber=1,
+    breaklines=true,
+    prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    identifierstyle=\ttfamily,
+    keywordstyle=\color[rgb]{0,0,1},
+    commentstyle=\color[rgb]{0.133,0.545,0.133},
+    stringstyle=\color[rgb]{0.627,0.126,0.941},
+}
+
+% Bibliography
+\bibliographystyle{apalike}

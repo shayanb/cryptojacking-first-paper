@@ -1,0 +1,39 @@
+\documentclass{svjour3}
+
+\include{config/globals}
+\usepackage{config/style}
+
+\begin{document}
+
+	\include{titlepage}
+	
+	%\clearpage
+	
+	%\thispagestyle{empty}
+	%\pagenumbering{gobble}
+
+	%\include{copyright}
+	%\include{abstract}
+
+	%\tableofcontents
+
+	%\clearpage
+
+	\pagenumbering{arabic}
+
+	\include{chapters/main_text}
+%	\include{chapters/example_math}
+%	\include{chapters/example_code}
+%	\include{chapters/example_citation}
+%        
+%	\pagestyle{empty}
+%	\pagenumbering{roman}
+%	\setcounter{page}{1}
+%	
+%	\phantomsection 
+%	\addcontentsline{toc}{chapter}{Bibliography} 
+	\bibliography{references}
+
+%	\include{appendices}
+
+\end{document}
