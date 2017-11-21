@@ -1,0 +1,4 @@
+SELECT domain, tags, content_language, server, x_powered_by, title from (
+SELECT domain, tags, p80.http_www.get.headers.content_language, p80.http_www.get.headers.server, p80.http.get.headers.x_powered_by, p80.http.get.title , p80.http_www.get.body as wwwbody, p80.http.get.body as plainbody
+FROM `censys-io.domain_public.20170916`
+WHERE STRPOS(p80.http.get.body, 'coinhive.min.js') >0 or STRPOS(p80.http_www.get.body, 'coinhive.min.js') >0)
