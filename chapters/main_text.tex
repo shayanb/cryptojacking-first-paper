@@ -10,7 +10,7 @@ Bitcoin ~\cite{nakamoto2008bitcoin} emerged less than a decade ago as an open so
 	\caption{Search interest for "browser mining" over time}
 \end{center}
 
-The graph above shows how the searches for "browser mining" have changed since Bitcoin was launched. Search interest seems to have piqued during price surges, which culminated with Bitcoin crossing $1000 USD. Soon after Bitcoin's first major crash, searches consistently waned until a recent large spike that is more than 4 times the lifetime average. The waning period before the recent surge could be attributed to the advent of ASIC usage for Bitcoin mining, and the surge is likely due to the revival of browser mining for non-Bitcoin currencies that have gained a sizeable market capitalization. As a result, websites like Showtime.com ~\cite{showtimehive}, and ThePirateBay.org ~\cite{piratesbayhive} have been experimenting with in-browser mining as a way to add a new revenue stream.
+The graph above shows how the searches for "browser mining" have changed since Bitcoin was launched. Search interest seems to have piqued during price surges, which culminated with Bitcoin crossing \$1000 USD. Soon after Bitcoin\'s first major crash, searches consistently waned until a recent large spike that is more than 4 times the lifetime average. The waning period before the recent surge could be attributed to the advent of ASIC usage for Bitcoin mining, and the surge is likely due to the revival of browser mining for non-Bitcoin currencies that have gained a sizeable market capitalization. As a result, websites like Showtime.com ~\cite{showtimehive}, and ThePirateBay.org ~\cite{piratesbayhive} have been experimenting with in-browser mining as a way to add a new revenue stream.
 
 \section{Egalitarian Proof-of-Work}
 
@@ -37,7 +37,23 @@ In the early days of cryptocurrency mining, there was a rise of Bitcoin javascri
 **INTRODUCE COIN-HIVE, AND WHY WE FOCUSED ON IT INSTEAD OF OTHERS LIKE COIN-LOOT**
 ** NEEDS MORE HERE ** 
 
-\section{Experiment}
+\section{State of affairs}
+In order to find out how browser mining is changing internet use, the approach taken was to find measurements of the impact. One is to see what is the search interest over time for such services. 
+
+\begin{center}
+	\makebox[1\textwidth]{\includegraphics[width=1\textwidth]{usage_over_time2.png}}
+	\caption{Google Trend - Search interest over last 12 months}
+\end{center}
+
+It seems there has been more interest in Coinhive, even more than the terms such as \`Browser mining\`. Comparing to other services offering Monero browser mining API, Coinhive had the advantage of being the first to offer the service, hence more interest at the time of writing. There has not been enough data and evidence of usage for other services to analyze, thus the focus of this paper is on the impact of Coinhive scripts on internet. 
+
+Next step was to see how many websites are jumping on Coinhive train using Internet scanners such as Zmap\footnote{\url{https://zmap.io}}. More interestingly is to see how the trend of this usage was, for this purpose historical data is required. Using censys.io Bigquery dataset ~\cite{censys15}, it is feasible to see such trends.
+ 
+\begin{center}
+	\makebox[1\textwidth]{\includegraphics[width=1\textwidth]{usage_of_coinhive_over_time.png}}
+	\caption{Usage of CoinHive Miner scripts over time}
+\end{center}
+
 
 Assumptions
 	We start our experiment by some assumptions based on our knowledge of how this process would affect users, and we will revisit these assumptions with the result from our experiments.
@@ -51,9 +67,6 @@ Miner off
 Miner on
 We will do these experiments on different devices, such as a Laptop, a PC, an Android phone and an iPhone, …
 
-\begin{center}
-	\makebox[1\textwidth]{\includegraphics[width=1\textwidth]{usage_over_time.png}}
-\end{center}
 
 
 Our hypotheses are that the CPU usage and electricity usage will be heavily affected by running the miner on the webpage. As for Network usage, our estimation is that there will be more traffic when miners are running, but no conclusion about the impact can be made at this time.
