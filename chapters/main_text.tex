@@ -46,7 +46,19 @@ In order to find out how browser mining is changing internet use, the approach t
 
 It seems there has been more interest in Coinhive, even more than the terms such as \`Browser mining\`. Comparing to other services offering Monero browser mining API, Coinhive had the advantage of being the first to offer the service, hence more interest at the time of writing. There has not been enough data and evidence of usage for other services to analyze, thus the focus of this paper is on the impact of Coinhive scripts on internet. 
 
-Next step was to see how many websites are jumping on Coinhive train using Internet scanners such as Zmap\footnote{\url{https://zmap.io}}. More interestingly is to see how the trend of this usage was, for this purpose historical data is required. Using censys.io Bigquery dataset ~\cite{censys15}, it is feasible to query for such trends.
+Next step was to see how many websites are jumping on Coinhive train using Internet scanners such as Zmap\footnote{\url{https://zmap.io}}. More interestingly is to see how the trend of this usage was, for this purpose historical data is required. 
+
+\begin{lstlisting}[caption={BigQuery SQL query to find websites using coinhive miner script},label={lst:bigquery},language=sql]
+SELECT domain, tags, p80.http_www.get.headers.content_language, p80.http_www.get.headers.server, p80.http.get.headers.x_powered_by, p80.http.get.title , p80.http_www.get.body as wwwbody, p80.http.get.body as plainbody
+FROM `censys-io.domain_public.20171123`
+WHERE STRPOS(p80.http.get.body, 'coinhive.min.js') >0 or STRPOS(p80.http_www.get.body, 'coinhive.min.js') >0)
+\end{lstlisting}
+
+
+Using censys.io Bigquery dataset ~\cite{censys15}, it is feasible to query for such trends. The method used to gather these data is simply looking for the `coinhive.min.js` script within the body of the website page, which could be circumvented if the website owner uses a custom version of this script (e.g. renamed hosted file).
+
+
+
  
 \begin{center}
 	\makebox[1\textwidth]{\includegraphics[width=1\textwidth]{usage_of_coinhive_over_time.png}}
