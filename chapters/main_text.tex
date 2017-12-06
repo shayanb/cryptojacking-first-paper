@@ -46,11 +46,26 @@ In order to find out how browser mining is changing internet use, the approach t
 
 It seems there has been more interest in Coinhive, even more than the terms such as \`Browser mining\`. Comparing to other services offering Monero browser mining API, Coinhive had the advantage of being the first to offer the service, hence more interest at the time of writing. There has not been enough data and evidence of usage for other services to analyze, thus the focus of this paper is on the impact of Coinhive scripts on internet. 
 
-Next step was to see how many websites are jumping on Coinhive train using Internet scanners such as Zmap\footnote{\url{https://zmap.io}}. More interestingly is to see how the trend of this usage was, for this purpose historical data is required. Using censys.io Bigquery dataset ~\cite{censys15}, it is feasible to see such trends.
+Next step was to see how many websites are jumping on Coinhive train using Internet scanners such as Zmap\footnote{\url{https://zmap.io}}. More interestingly is to see how the trend of this usage was, for this purpose historical data is required. Using censys.io Bigquery dataset ~\cite{censys15}, it is feasible to query for such trends.
  
 \begin{center}
 	\makebox[1\textwidth]{\includegraphics[width=1\textwidth]{usage_of_coinhive_over_time.png}}
-	\caption{Usage of CoinHive Miner scripts over time}
+	\caption{Usage of CoinHive Miner scripts in top 1million websites over time}
+\end{center}
+
+As seen in the chart above, the adaptation of this script was massive in the first days of release. However the progress slowed down as Adblockers and organizations started to block Coinhive website. The initial purpose of this service as claimed by Coinhive website, is to replace ads and cover server costs for the webmasters. Although as the service did not require user consent, it started to be used as a malicious activity on user\' s browsers and Coinhive was included in the top 10 most wanted malwares after some famous randomwares ~\cite{checkpoint}. 
+
+\begin{center}
+	\makebox[1\textwidth]{\includegraphics[width=1\textwidth]{coinhive_blocked.png}}
+	\caption{Concordia University blocked page for coinhive.com}
+\end{center}
+
+This helped the copycats to gain some market attention, but also pushed Coinhive developers to think of other methods which are more focused on user consent for running such scripts. Coinhive introduced another domain and service called \" Authedmine \", which requires user\' s consent to start mining on the browser. This service did not get the same attention as the original service. Although this brought up the discussion about ethics of such services, which is covered in Discussion section of this paper. 
+%TALKED ABOUT ETHICS? UPDATE HERE
+
+\begin{center}
+	\makebox[1\textwidth]{\includegraphics[width=1\textwidth]{usage_of_authedmine_over_time.png}}
+	\caption{Usage of AuthedMine Miner scripts in top 1million websites over time}
 \end{center}
 
 
