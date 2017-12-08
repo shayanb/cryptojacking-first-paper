@@ -3,14 +3,14 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam a orci ornare nibh 
 
 \section{Introduction}
 
-Bitcoin ~\cite{nakamoto2008bitcoin} emerged less than a decade ago as an open source project, which mushroomed to an industry worth more than 250 billion dollars as of this report's writing ~\cite{coinmarketcap}, which is made up of many different cryptocurrencies. Consequently, every day people new to the concept of cryptocurrencies look for a quick and simple way to acquire some crypto wealth. In the early days many decided to speed up the process of mining for themselves by combining CPUs and GPUs to work together. Other groups of people deployed snippets of JavaScript code on websites that recruited their visitors’ CPU power, often unknowingly, to mine for them as part of a bigger mining network (a.k.a botnet). However, both approaches quickly became infeasible as the computing power required to mine bitcoins grew exponentially to over 12 petahashes/s ~\cite{blockchaininfohashrate}, and lead to the emergence of application-specific integrated circuits (ASICs) and collective mining pools to continue the mining race. As the years passed and a few key cryptocurrencies emerged as the market leaders, the concept of in-browser crypto-mining largely became forgotten. Today, the most common way for the average person to acquire cryptocurrencies is to purchase them. Unusually, stories began to circulate on popular media outlets this year of websites mining cryptocurrencies through browsers again. And even more intriguingly, high profile websites were now involved, and the practice seemed to be growing at a quick pace.
+Bitcoin ~\cite{nakamoto2008bitcoin} emerged less than a decade ago as an open source project, which mushroomed to an industry worth more than 250 billion dollars as of this report`s writing ~\cite{coinmarketcap}, which is made up of many different cryptocurrencies. Consequently, every day people new to the concept of cryptocurrencies look for a quick and simple way to acquire some crypto wealth. In the early days many decided to speed up the process of mining for themselves by combining CPUs and GPUs to work together. Other groups of people deployed snippets of JavaScript code on websites that recruited their visitors’ CPU power, often unknowingly, to mine for them as part of a bigger mining network (a.k.a botnet). However, both approaches quickly became infeasible as the computing power required to mine bitcoins grew exponentially to over 12 petahashes/s ~\cite{blockchaininfohashrate}, and lead to the emergence of application-specific integrated circuits (ASICs) and collective mining pools to continue the mining race. As the years passed and a few key cryptocurrencies emerged as the market leaders, the concept of in-browser crypto-mining largely became forgotten. Today, the most common way for the average person to acquire cryptocurrencies is to purchase them. Unusually, stories began to circulate on popular media outlets this year of websites mining cryptocurrencies through browsers again. And even more intriguingly, high profile websites were now involved, and the practice seemed to be growing at a quick pace.
 
 \begin{center}
 	\makebox[1\textwidth]{\includegraphics[width=1\textwidth]{browser_mining.png}}
-	\caption{Search interest for "browser mining" over time}
+	\caption{Search interest for ``browser minin'' over time}
 \end{center}
 
-The graph above shows how the searches for "browser mining" have changed since Bitcoin was launched. Search interest seems to have piqued during price surges, which culminated with Bitcoin crossing \$1000 USD. Soon after Bitcoin\'s first major crash, searches consistently waned until a recent large spike that is more than 4 times the lifetime average. The waning period before the recent surge could be attributed to the advent of ASIC usage for Bitcoin mining, and the surge is likely due to the revival of browser mining for non-Bitcoin currencies that have gained a sizeable market capitalization. As a result, websites like Showtime.com ~\cite{showtimehive}, and ThePirateBay.org ~\cite{piratesbayhive} have been experimenting with in-browser mining as a way to add a new revenue stream.
+The graph above shows how the searches for ``browser mining'' have changed since Bitcoin was launched. Search interest seems to have piqued during price surges, which culminated with Bitcoin crossing \$1000 USD. Soon after Bitcoin`s first major crash, searches consistently waned until a recent large spike that is more than 4 times the lifetime average. The waning period before the recent surge could be attributed to the advent of ASIC usage for Bitcoin mining, and the surge is likely due to the revival of browser mining for non-Bitcoin currencies that have gained a sizeable market capitalization. As a result, websites like Showtime.com ~\cite{showtimehive}, and ThePirateBay.org ~\cite{piratesbayhive} have been experimenting with in-browser mining as a way to add a new revenue stream.
 
 \section{Egalitarian Proof-of-Work}
 
@@ -32,7 +32,7 @@ Satoshi Nakamoto’s original philosophy and intention for Bitcoin was “one-CP
 In the early days of cryptocurrency mining, there was a rise of Bitcoin javascript miners such as JSMiner\footnote{A JavaScript Bitcoin miner \url{https://github.com/jwhitehorn/jsMiner}}(2011) and MineCrunch\footnote{Minecrunch, web(JS) miner with integration feature\url{https://cryptocurrencytalk.com/topic/24618-minecrunch-web-js-miner-with-integration-feature/}}(2014). Minecrunch had a bigger campaign and more online presence from their developers. Based on what the developer claimed, the JavaScript miner was optimised and worked 1.5x slower than native CPUMiner\footnote{CPU miner for Litecoin and Bitcoin - \url{https://github.com/pooler/cpuminer}}, which was an application to mine on CPUs. However, as the hashing power of the Bitcoin network increased the mining difficulty similarly increased, and Bitcoin CPU mining was no longer profitable. As a result, the developers stopped maintaining the codebase of such miners.
 
 \\
-As Monero became more popular, it caught the attention of some independent developers who decided to revisit the idea of browser mining. One of the earliest efforts was called Coinhive, and soon after a competitor named Crypto-Loot emerged. Both were startups that provided an API to websites to implement that would mine their visitors' CPU resources to mine Monero. A portion of monero would go back to the startup, and the rest would be kept by the website. Not long after their early success, several copycats appeared such as Coin-Have and PPoi~\cite{coinhivecopycats}. It even inspired a new coin specifically desiged for browser mining named JSECoin. These developments took place over a few short weeks, which signaled the renwed success of browser mining. However, Coinhive's approach as a legitimate startup set it apart from its peers and established itself as the leader in the space. They also launched separate services such as proof-of-work CAPTCHAs and shortlinks, which could be used to prevent spam while mining Monero~\cite{coinhive}.
+As Monero became more popular, it caught the attention of some independent developers who decided to revisit the idea of browser mining. One of the earliest efforts was called Coinhive, and soon after a competitor named Crypto-Loot emerged. Both were startups that provided an API to websites to implement that would mine their visitors` CPU resources to mine Monero. A portion of monero would go back to the startup, and the rest would be kept by the website. Not long after their early success, several copycats appeared such as Coin-Have and PPoi~\cite{coinhivecopycats}. It even inspired a new coin specifically desiged for browser mining named JSECoin. These developments took place over a few short weeks, which signaled the renwed success of browser mining. However, Coinhive`s approach as a legitimate startup set it apart from its peers and established itself as the leader in the space. They also launched separate services such as proof-of-work CAPTCHAs and shortlinks, which could be used to prevent spam while mining Monero~\cite{coinhive}.
 
 %Some examples on coinhive website (what they do) such as Shortlinks, Captcha , ... 
 
@@ -58,21 +58,19 @@ WHERE STRPOS(p80.http.get.body, 'coinhive.min.js') >0 or STRPOS(p80.http_www.get
 Using censys.io Bigquery dataset ~\cite{censys15}, it is feasible to query for such trends. The method used to gather these data is simply looking for the `coinhive.min.js` script within the body of the website page, which could be circumvented if the website owner uses a custom version of this script (e.g. renamed hosted file).
 
 
-
- 
 \begin{center}
 	\makebox[1\textwidth]{\includegraphics[width=1\textwidth]{usage_of_coinhive_over_time.png}}
 	\caption{Usage of CoinHive Miner scripts in top 1million websites over time}
 \end{center}
 
-As seen in the chart above, the adaptation of this script was massive in the first days of release. However the progress slowed down as Adblockers and organizations started to block Coinhive website. The initial purpose of this service as claimed by Coinhive website, is to replace ads and cover server costs for the webmasters. Although as the service did not require user consent, it started to be used as a malicious activity on user\' s browsers and Coinhive was included in the top 10 most wanted malwares after some famous randomwares ~\cite{checkpoint}. 
+As seen in the chart above, the adaptation of this script was massive in the first days of release. However the progress slowed down as Adblockers and organizations started to block Coinhive website. The initial purpose of this service as claimed by Coinhive website, is to replace ads and cover server costs for the webmasters. Although as the service did not require user consent, it started to be used as a malicious activity on user` s browsers and Coinhive was included in the top 10 most wanted malwares after some famous randomwares ~\cite{checkpoint}. 
 
 \begin{center}
 	\makebox[1\textwidth]{\includegraphics[width=1\textwidth]{coinhive_blocked.png}}
 	\caption{Concordia University blocked page for coinhive.com}
 \end{center}
 
-This helped the copycats to gain some market attention, but also pushed Coinhive developers to think of other methods which are more focused on user consent for running such scripts. Coinhive introduced another domain and service called \" Authedmine \", which requires user\' s consent to start mining on the browser. This service did not get the same attention as the original service. Although this brought up the discussion about ethics of such services, which is covered in Discussion section of this paper. 
+This helped the copycats to gain some market attention, but also pushed Coinhive developers to think of other methods which are more focused on user consent and bypassing blockage for running such scripts. Coinhive introduced another domain and service called ``Authedmine'' , which requires user`s consent to start mining on the browser. This service did not get the same attention as the original service. Although this brought up the discussion about ethics of such services, which is covered in Discussion section of this paper. 
 %TALKED ABOUT ETHICS? UPDATE HERE
 
 \begin{center}
@@ -80,25 +78,8 @@ This helped the copycats to gain some market attention, but also pushed Coinhive
 	\caption{Usage of AuthedMine Miner scripts in top 1million websites over time}
 \end{center}
 
+Except the first few days of launch, most of these scripts are defaulted to use around 25\% of user`s CPU, which can be justified as to be under threshold of user`s attention or to fairly use their hardware. The first few days, there has been reports of 100\% of CPU usage when visiting websites containing these script. **CITATION PIRATEBAY BLOG**.
 
-%-------------------------------Revise------------------------
-
-Assumptions
-	We start our experiment by some assumptions based on our knowledge of how this process would affect users, and we will revisit these assumptions with the result from our experiments.
-We will track three different measurements:
-CPU Usage percentage over a period of time on a webpage
-Miner off
-Miner on
-Electricity Usage (Battery drain on mobile devices)
-Network Usage over a period of time on a webpage
-Miner off
-Miner on
-We will do these experiments on different devices, such as a Laptop, a PC, an Android phone and an iPhone, …
-
-
-Our hypotheses are that the CPU usage and electricity usage will be heavily affected by running the miner on the webpage. As for Network usage, our estimation is that there will be more traffic when miners are running, but no conclusion about the impact can be made at this time.
-
-%-----------------------------/-------------------------------Revise--------------------------------------------------
 
 
 \section{User Impact}
@@ -117,7 +98,7 @@ We also see the potential for this new form of revenue generation to compete wit
 
 \section{Discussion}
 Future possibilities:
-	- every website uses a browser miner. if many tabs are open, how are user's CPU resources shared? first tab takes all the CPU 		power, or is it shared evenly? Can that remain profitable for websites? will that cause too much strain on the user's CPU?
+	- every website uses a browser miner. if many tabs are open, how are user`s CPU resources shared? first tab takes all the CPU 		power, or is it shared evenly? Can that remain profitable for websites? will that cause too much strain on the user`s CPU?
 	- would users be happy with giving some of their idle CPU to websites? if so, how much? would they change their minds if battery 	was impacted too severely?
 	- should this be implemented at OS level?
 	- Facebook/Google have a duopoly on the market and control prices (>60 percent of revenue from ads), so would this be 			competitive for websites?
