@@ -4,7 +4,7 @@ This is the repo for the research on the impact and ethics of browser mining, st
 
 This started as a course project and the goal is to make it comprehensive enough to submit to a related conference.
 
-**Note:** Due to the fact that I had to update some facts of this paper almost daily (e.g https://github.com/shayanb/inse6630/commit/795ac61d970d8d69878539e9635b80450661b1ec), I feel like it will be interesting to make this a crowd effort. With the recent posts I've seen from other people interested in this subject, I believe it will be a fun and remarkable collaboration. 
+**Note:** Due to the fact that I had to update some facts of this paper almost daily (e.g [update on starbucks miner injection](https://github.com/shayanb/inse6630/commit/795ac61d970d8d69878539e9635b80450661b1ec) ), I feel like it will be interesting to make this a crowd effort. With the recent posts I've seen from other people interested in this subject, I believe it will be a fun and remarkable collaboration. 
 
 
 For latest version, checkout: [main.pdf](main.pdf)
@@ -19,6 +19,8 @@ Possible Conferences:
 * IWBOSE 2018 : 1th International Workshop on Blockchain-Oriented Software Engineering [website](http://www.guide2research.com/conference/iwbose-2018)
     * Submission Deadline   **Friday 12 Jan 2018**
 
+* CVCBT, IEEE Switzerland 2018 : Call for Papers for the 1st Crypto Valley Conference on Blockchain Technology (CVCBT), IEEE Switzerland [website](https://www.cryptovalleyconference.com/technology-call-for-papers)
+    * Submission Deadline   **15 February 2018**
 
 ___
 
