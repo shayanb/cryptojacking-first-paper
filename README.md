@@ -1,14 +1,15 @@
-# Cryptojacking user's CPU - Monero Browser Miner
+# Cryptojacking user's CPU - Monero Browser Mining
 
 This is the repo for the research on the impact and ethics of browser mining, started by an API service offered by coin-hive.com in September 2017.
 
 This started as a course project and the goal is to make it comprehensive enough to submit to a related conference.
 
-*Due to the fact that I had to update some facts of this paper almost daily (e.g https://github.com/shayanb/inse6630/commit/795ac61d970d8d69878539e9635b80450661b1ec), I feel like it will be interesting to make this a crowd effort. With the recent posts I've seen from other people interested in this subject, I believe it will be a fun and remarkable collaboration. 
+**Note:** Due to the fact that I had to update some facts of this paper almost daily (e.g https://github.com/shayanb/inse6630/commit/795ac61d970d8d69878539e9635b80450661b1ec), I feel like it will be interesting to make this a crowd effort. With the recent posts I've seen from other people interested in this subject, I believe it will be a fun and remarkable collaboration. 
 
-For latest version, checkout: [main.pdf](.main.pdf)
 
-================
+For latest version, checkout: [main.pdf](main.pdf)
+
+___
 
 Possible Conferences:
 
@@ -19,7 +20,7 @@ Possible Conferences:
     * Submission Deadline   **Friday 12 Jan 2018**
 
 
-=================
+___
 
 ## Make Commands
 
@@ -53,10 +54,10 @@ Possible Conferences:
 * **abstract.tex** *(the abstract page)*
 * **references.bib** *(the references library)*
 
-==================
+___
 
 Originally forked from: [LaTeX Boilerplate](https://github.com/tijme/latex-boilerplate)
 
-=====================
+___
 
 All contributions are welcomed.
