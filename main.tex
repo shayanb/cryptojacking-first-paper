@@ -1,4 +1,11 @@
-\documentclass[12pt, oneside]{svjour3}
+%\documentclass[12pt, oneside]{svjour3}
+
+
+\documentclass[conference]{IEEEtran}
+
+\pagestyle{plain}
+
+
 
 \include{config/globals}
 \usepackage{config/style}
@@ -6,9 +13,14 @@
 \begin{document}
 
 
-	\pagenumbering{gobble}
 
-	\include{titlepage}
+\title{Cryptojacking User`s CPU - Monero Browser Mining}
+
+\author{\IEEEauthorblockN{Shayan Eskandari, Andreas Leoutsarakos and Jeremy Clark}}
+
+%	\pagenumbering{gobble}
+
+	%\include{titlepage}
 	
 	%\clearpage
 	
@@ -23,9 +35,11 @@
 	%\clearpage
 
 	\pagenumbering{arabic}
+	
+	\maketitle
 
-	\titlespacing{\section}{0pt}{\parskip}{-\parskip}
-	\titlespacing{\subsection}{0pt}{\parskip}{-\parskip}
+%	\titlespacing{\section}{0pt}{\parskip}{-\parskip}
+%	\titlespacing{\subsection}{0pt}{\parskip}{-\parskip}
 
 	\include{chapters/main_text}
 %	\include{chapters/example_math}
@@ -39,7 +53,15 @@
 	%\phantomsection 
 	%\addcontentsline{toc}{chapter}{Bibliography} 
 
-	\bibliography{references}
+	%\bibliography{references}
+
+
+% = = = = = Bibliography = = = = = %
+
+\bibliographystyle{IEEEtranS}
+\footnotesize
+\bibliography{IEEEabrv,references}
+\normalsize
 
 %	\include{appendices}
 
