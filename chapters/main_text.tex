@@ -1,16 +1,16 @@
-\section{abstract}
+\section{Abstract}
 
 Browser mining (a.k.a. cryptojacking) is the process of running code in a web browser for the purpose of mining  cryptocurrency by performing CPU calculations. In the early days of Bitcoin, this method of mining gained popularity before quickly being phased out due to the exponential increase in its mining difficulty. However, the recent emergence of egalitarian proof-of-work cryptocurrencies, such as Monero, revived the practice of browser mining by making it viable once again. Current implementations of browser mining have resulted in unethical usage of such technology that infringes on a user`s rights by unsolicitedly using their resources. The implications and real-world consequences of browser mining are explored in this paper.
 
 \section{Introduction}
 Bitcoin ~\cite{nakamoto2008bitcoin} emerged almost a decade ago as an open source project, which mushroomed into an industry made up of many different cryptocurrencies that collectively are valued at more than \$500 billion USD as of this report`s writing\footnote{Coinmarketcap - Global Charts - Accessed: 2017-12-14 \url{https://coinmarketcap.com/}}. Consequently, every day people new to the concept of cryptocurrencies look for a quick and simple way to acquire some crypto-wealth. In the early days many decided to speed up the process of mining\footnote{Mining is the process to verify transactions in a blockchain and get rewards for doing the work. Details of how mining works is beyond the scope of this paper.} for themselves by combining CPUs and GPUs to work together. Other groups of people deployed snippets of JavaScript code on websites that recruited their visitors’ CPU power, often unknowingly, to mine for them as part of a bigger mining network (a.k.a mining pool). However, both approaches quickly became infeasible as the computing power required to mine bitcoins grew exponentially to over 12 petahashes ~\footnote{Bitcoin hash rate - Accessed: 2017-11-20\url{https://blockchain.info/charts/hash-rate}}. This was due to the emergence of application-specific integrated circuits (ASICs) and collective mining pools, which continue the mining race to this day. As the years passed and a few key cryptocurrencies emerged as the market leaders, the concept of browser mining largely became forgotten. Today, the most common way for the average person to acquire cryptocurrencies is to purchase them. It came as a surprise to many when stories began to circulate on popular media outlets this year about websites mining cryptocurrencies through browsers again. And even more intriguingly, high profile websites were now involved, and the practice seemed to be growing at a quick pace.
 
-\vspace*{-5mm}
+\vspace*{-3mm}
 \begin{center}
 	\makebox[1\textwidth]{\includegraphics[width=0.75\textwidth]{browser_mining.png}}
 	\caption{Search interest for ``browser mining'' over time}
 \end{center}
-\vspace*{-5mm}
+\vspace*{-3mm}
 
 The graph above shows how the searches for ``browser mining'' have changed since Bitcoin was launched. Search interest seems to have piqued during price surges, which culminated with Bitcoin crossing \$1000 USD for the first time in December 2013. Soon after Bitcoin`s first major crash searches consistently waned until a recent large spike, which is more than 4 times the lifetime average. The waning period before the recent surge could be attributed to the advent of ASIC usage for Bitcoin mining, and the surge is likely due to the revival of browser mining for non-Bitcoin currencies that have gained a sizeable market capitalization. As a result, websites like ThePirateBay.org ~\cite{piratesbayhive} experimented with browser mining as a way to add a new revenue stream, while others like Showtime.com ~\cite{showtimehive} claimed they had the code injected after they were discovered.
 
@@ -28,7 +28,7 @@ The concept of browser mining can be described as accessing CPU processing power
 \\
 Monero built on its early success and continued to gain in popularity over the years, which caught the attention of some developers who decided to revisit the idea of browser mining. One of the earliest efforts appeared in September 2017 and was called Coinhive~\cite{coinhive}. Soon after a competitor named Crypto-Loot\footnote{Crypto-Loot - A web Browser Miner | Traffic Miner | CoinHive Alternative \url{https://crypto-loot.com/}} emerged. Both websites provided APIs\footnote{Application programming interface} to developers for implementing browser mining on their websites that used their visitors` CPU resources to mine Monero. A portion of mined Monero would go back to the API developer, and the rest would be kept by the website. Not long after their early success, several copycats appeared such as Coin-Have and PPoi~\cite{coinhivecopycats} to take part in the reborn practice. It even inspired a new coin specifically designed for browser mining named JSECoin\footnote{JSEcoin – Website Cryptocurrency Mining \url{https://jsecoin.com/}}, which has yet to find an audience. These developments took place over the course of a few weeks, which signalled the renewed success of browser mining. However, Coinhive`s approach as a legitimate group set it apart from its peers and established itself as the leader in the space. They also launched separate services such as proof-of-work CAPTCHAs and short-links, which could be used to prevent spam while mining Monero~\cite{coinhive}.
 
-\section{State of affairs}
+\section{State of Affairs}
 In order to find out how browser mining is changing internet use, the approach taken was to find measurements of the impact it causes. One approach was to see what the search interest over time for such services is. 
 
 \vspace*{-1mm}
@@ -78,12 +78,23 @@ This helped the copycats to gain some market attention, but also pushed Coinhive
 
 Most of these scripts discovered were defaulted to use around 25\% of user`s CPU, which can be justified as it will be under the threshold of attracting the user`s attention, and it could be argued as fair-usage of their hardware. During the first few days, however, there were some reports of 100\% CPU usage when visiting websites containing these scripts~\cite{piratesbayblog}, which can be characterized as malicious.
 
-\vspace*{-1mm}
 \begin{center}
 	\makebox[1\textwidth]{\includegraphics[width=0.75\textwidth]{windows_cpu_usage.png}}
 	\caption{CPU usage browser mining scripts in the second half of the chart compared to the first half of normal use}
 \end{center}
-\vspace*{-5mm}
+\vspace*{-2mm}
+
+\subsection{\textbf{Profitability Experiment}}
+On an experiment conducted over period of three months a domain parking service was used to deploy the browser mining script to more than 11,000 websites\footnote{Thanks to Faraz Fallahi \url{https://github.com/fffaraz}} . Over 97,000 users visited these websites for an average of 24 seconds per session.
+\\
+\vspace*{-1mm}
+\begin{center}
+	\makebox[1\textwidth]{\includegraphics[width=0.75\textwidth]{coinhive_experiment_11k.png}}
+	\caption{Analytics of the Coinhive experiment - Coinhive Dashboard and Google Analytics results}
+\end{center}
+\vspace*{-1mm}
+
+This experiment showed that even though the number of users visiting was significant, the profit from those visits was below expectations. For the three-month period, the revenue was 0.02417 Monero, which at the time of writing this is equivalent to 7.69 USD.
 
 \section{Discussion}
 The opinion of the authors of this paper maintain that users should be given the option to enable the miner code in their browser only with some benefit to their experience on the website.  An example of a benefit could be the removal of advertisements. Recent polls support this notion, such as the one conducted by Bleeping Computer, which found that ``many users said they are OK with websites mining Monero in the background if they don`t see ads anymore''~\cite{bleepingcomputerminers}. Another example would be granting access to premium features of the website such as journal articles behind a paywall, or streaming in high-definition. The website could also allow the user to participate in mining rewards by allocating a large portion of their CPU resources to the activity of mining, which would benefit both parties. By notifying the user of the potentials of such activity, and allowing them to make a choice to participate, the website maintains trust in their relationship with the user while also benefiting from a new source of revenue. By foregoing disclaiming this new activity, which can have harmful effects, the website will gain a new revenue stream for a short time only while sacrificing their reputation in the long term. Coinhive`s recent response to the market`s negative reaction by releasing AuthedMine, which enforces user consent before enabling any mining JavaScript code, justifies this rationale. However, before consented browser mining could develop into a sustainable model, its security implications and user impact should be addressed.
@@ -109,7 +120,7 @@ Most browser mining code is ran without the consent, nor knowledge, of the users
 \\
 A second example of a popular website deploying Coinhive’s API is Showtime.com~\cite{gaurdianelectricity}, which is a popular cable channel that also streams their TV shows online. It was then hardly surprising when UFC.com was accused of using this very same code on the night of streaming one of their most popular events~\cite{registerufcmonero}. Both Showtime and UFC defended their actions by claiming that the miner was unknowingly activated through an ad injection. Whether this claim is true or not, the recent trend of streaming websites deploying Coinhive`s API could be due to the high costs of providing streaming services. While ads can be used to offset some of those costs, it would be of interest to some to at least experiment with the idea of recruiting their users to mine Monero for profit.
 \\
-Given the recent interest some websites have shown in regard to browser mining, we also see the potential for this new form of revenue generation to compete with advertisements. An immediate impact could be to reduce how many ads a user sees on a given website, and in the future it could one day even replace them. This is because the malware that is associated with advertisements is still a growing concern, and the public`s dislike of advertisements will likely persist and not wane. Also, as cryptocurrencies continue to grow in market capitalization and use cases, their inevitable mainstream use will push the profitability of mining egalitarian proof-of-work cryptocurrencies, such as Monero, well into the future. There are many ongoing discussions on the potential of browser mining one day replacing online advertisement\footnote{Carl Whalley - Could cryptocurrency kill online advertising \url{https://www.linkedin.com/pulse/could-cryptocurrency-kill-online-advertising-carl-whalley}}.
+Given the recent interest some websites have shown in regard to browser mining, there is also potential for this new form of revenue generation to compete with advertisements. An immediate impact could be to reduce how many ads a user sees on a given website, and in the future it could one day even replace them. This is because the malware that is associated with advertisements is still a growing concern, and the public`s dislike of advertisements will likely persist and not wane. Also, as cryptocurrencies continue to grow in market capitalization and use cases, their inevitable mainstream use will push the profitability of mining egalitarian proof-of-work cryptocurrencies, such as Monero, well into the future. There are many ongoing discussions on the potential of browser mining one day replacing online advertisement\footnote{Carl Whalley - Could cryptocurrency kill online advertising \url{https://www.linkedin.com/pulse/could-cryptocurrency-kill-online-advertising-carl-whalley}}.
 %The lack of regulation in cryptocurrency space allows for a grey market to grow. This is felt more when it affects non-tech-savvy users. 
 
 \section{Future Work}
