@@ -36,7 +36,7 @@ In order to find out how browser mining is changing internet use, the approach t
 	\makebox[1\textwidth]{\includegraphics[width=0.75\textwidth]{usage_over_time2.png}}
 	\caption{Google Trend - Search interest over last 12 months}
 \end{center}
-\vspace*{-2mm}
+\vspace*{-1mm}
 
 It seems that there has been more interest in Coinhive than the broader, related search term ``Browser mining''. Comparing to other services offering Monero browser mining API, Coinhive had the advantage of being the first to offer the service, hence more interest at the time of writing. There has not been enough data and evidence of usage for other services to analyze, thus the focus of this paper is on the impact of Coinhive scripts on the internet. 
 
@@ -60,7 +60,7 @@ Using censys.io BigQuery dataset ~\cite{censys15}, it is feasible to query for s
 
 As seen in the chart above, the adoption of this script was substantial in the first days of its release. However, progress slowed down as ad-blockers and organizations started to block Coinhive's website. The initial purpose of this service, as claimed by Coinhive, was to replace ads and cover server costs for webmasters. As the service did not require that website's received user consent before beginning to mine, it started to be used maliciously in user`s browsers. This type of usage resulted in Coinhive being included in the top-10 most wanted malware list after some famous ransomware ~\cite{checkpoint}. 
 
-\vspace*{-4mm}
+\vspace*{-3mm}
 \begin{center}
 	\makebox[1\textwidth]{\includegraphics[width=0.5\textwidth]{coinhive_blocked.png}}
 	\caption{Concordia University has blocked coinhive.com website}
@@ -85,12 +85,13 @@ Most of these scripts discovered were defaulted to use around 25\% of user`s CPU
 \vspace*{-2mm}
 
 \subsection{\textbf{Profitability Experiment}}
+\label{profitabilitexperiment}
 On an experiment conducted over period of three months a domain parking service was used to deploy the browser mining script to more than 11,000 websites\footnote{Thanks to Faraz Fallahi \url{https://github.com/fffaraz}} . Over 97,000 users visited these websites for an average of 24 seconds per session.
 \\
 \vspace*{-1mm}
 \begin{center}
-	\makebox[1\textwidth]{\includegraphics[width=0.75\textwidth]{coinhive_experiment_11k.png}}
-	\caption{Analytics of the Coinhive experiment - Coinhive Dashboard and Google Analytics results}
+	\makebox[1\textwidth]{\includegraphics[width=\textwidth]{coinhive_experiment_11k.png}}
+	\caption{Results from Coinhive and Google Analytics dashboards}
 \end{center}
 \vspace*{-1mm}
 
@@ -113,14 +114,14 @@ The attack surface to abuse users' browsers is broad. If the browsers do not blo
 	\makebox[1\textwidth]{\includegraphics[width=0.5\textwidth]{attack_vectors.png}}
 	\caption{Attack vectors to inject miner scripts in webpages}
 \end{center}
-\vspace*{-8mm}
+\vspace*{-2mm}
 
 \subsection{\textbf{User Impact}}
 Most browser mining code is ran without the consent, nor knowledge, of the users involved. As previously mentioned, the websites that have been found running JavaScript code for the purpose of mining usually employed Coinhive`s API. One such website, for example, ThePirateBay.org~\cite{bbcmintcrypto}, which ran the JavaScript code when users searched for torrent files. Perhaps unsurprisingly, there was no notice in their Privacy Policy nor visible warning on any part of the website that informed their users of this activity. This resulted in a backlash against the website, which responded with the following statement, ``Do you want ads or do you want to give away a few of your CPU cycles every time you visit the site?'' ~\cite{piratesbayblog}. While they admitted to their testing of browser mining, their notice came after the fact and resulted in the removal of the JavaScript code altogether due to upset users. This is in contrast to the banners users are presented with upon the first visit to a website that warns them of the website`s policy on cookies, which is enforced today through EU laws~\cite{eucookie}. It is now widely known that these cookies can be used to track users across the internet, so cookie banners can act as a reminder and allow the user to make better informed decisions regarding their browsing habits. Without any type of disclaimer for users, websites have been commandeering their users` CPU resources for their business and personal gain. This results in higher energy bills for the user, along with accelerated device degradation, slower system performance, and poor web experience\footnote{The Performance Impact of Cryptocurrency Mining on the Web \url{https://discuss.httparchive.org/t/the-performance-impact-of-cryptocurrency-mining-on-the-web/1126}}~\cite{gaurdianelectricity}.
 \\
 A second example of a popular website deploying Coinhive’s API is Showtime.com~\cite{gaurdianelectricity}, which is a popular cable channel that also streams their TV shows online. It was then hardly surprising when UFC.com was accused of using this very same code on the night of streaming one of their most popular events~\cite{registerufcmonero}. Both Showtime and UFC defended their actions by claiming that the miner was unknowingly activated through an ad injection. Whether this claim is true or not, the recent trend of streaming websites deploying Coinhive`s API could be due to the high costs of providing streaming services. While ads can be used to offset some of those costs, it would be of interest to some to at least experiment with the idea of recruiting their users to mine Monero for profit.
 \\
-Given the recent interest some websites have shown in regard to browser mining, there is also potential for this new form of revenue generation to compete with advertisements. An immediate impact could be to reduce how many ads a user sees on a given website, and in the future it could one day even replace them. This is because the malware that is associated with advertisements is still a growing concern, and the public`s dislike of advertisements will likely persist and not wane. Also, as cryptocurrencies continue to grow in market capitalization and use cases, their inevitable mainstream use will push the profitability of mining egalitarian proof-of-work cryptocurrencies, such as Monero, well into the future. There are many ongoing discussions on the potential of browser mining one day replacing online advertisement\footnote{Carl Whalley - Could cryptocurrency kill online advertising \url{https://www.linkedin.com/pulse/could-cryptocurrency-kill-online-advertising-carl-whalley}}.
+Given the recent interest some websites have shown in regard to browser mining, there is also potential for this new form of revenue generation to compete with advertisements. As seen in section~\ref{profitabilitexperiment}, an immediate impact could be to reduce how many ads a user sees on a given website. Moving forward websites with long user sessions such as streaming services could one day even replace ads. This is because the malware that is associated with advertisements is still a growing concern, and the public`s dislike of advertisements will likely persist and not wane. Also, as cryptocurrencies continue to grow in market capitalization and use cases, their inevitable mainstream use will push the profitability of mining egalitarian proof-of-work cryptocurrencies, such as Monero, well into the future. There are many ongoing discussions on the potential of browser mining one day replacing online advertisement\footnote{Carl Whalley - Could cryptocurrency kill online advertising \url{https://www.linkedin.com/pulse/could-cryptocurrency-kill-online-advertising-carl-whalley}}.
 %The lack of regulation in cryptocurrency space allows for a grey market to grow. This is felt more when it affects non-tech-savvy users. 
 
 \section{Future Work}
