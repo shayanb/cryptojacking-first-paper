@@ -7,9 +7,10 @@ This started as a course project and the goal is to make it comprehensive enough
 **Note:** Due to the fact that I had to update some facts of this paper almost daily (e.g [update on starbucks miner injection](https://github.com/shayanb/inse6630/commit/795ac61d970d8d69878539e9635b80450661b1ec) ), I feel like it will be interesting to make this a crowd effort. With the recent posts I've seen from other people interested in this subject, I believe it will be a fun and remarkable collaboration. 
 
 
-For latest clean version, checkout: [Cryptojacking Users CPU - Monero Browser Mining - Submitted for the course.pdf](Cryptojacking Users CPU - Monero Browser Mining - Submitted for the course.pdf)
+To see the latest version:
+* Clean Version: [Cryptojacking Users CPU - Monero Browser Mining.pdf](CryptojackingUsersCPU_MoneroBrowserMining.pdf)
+* Heavily under development (might look weird): [main.pdf](main.pdf)
 
-Under development version: [main.pdf](main.pdf)
 ___
 
 Possible Conferences:
