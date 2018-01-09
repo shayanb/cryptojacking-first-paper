@@ -1,0 +1,56 @@
+%====================================================================
+
+\documentclass[10pt, conference, compsocconf]{IEEEtran}
+
+%====================================================================
+
+\input{setup/packages}
+\input{setup/macros}
+
+%\input{setup/ieeebib}
+
+%====================================================================
+
+
+\begin{document}
+\title{Title}
+
+\author{
+\IEEEauthorblockN{Jeremy Clark} 
+\IEEEauthorblockA{School of Computer Science\\
+Carleton University\\
+\texttt{\{clark\}@scs.carleton.ca}}
+}
+
+%\IEEEspecialpapernotice{(Systemization of Knowledge)}
+
+\maketitle
+
+%====================================================================
+
+\begin{abstract}
+\input{sections/abstract}
+\end{abstract}
+
+\begin{IEEEkeywords}
+authentication; 
+\end{IEEEkeywords}
+
+\IEEEpeerreviewmaketitle
+
+%====================================================================
+
+\input{sections/body}
+
+%====================================================================
+
+\bibliographystyle{abbrv}
+\footnotesize
+\bibliography{bib/references.bib}
+\normalsize
+
+%====================================================================
+
+\end{document}
+
+

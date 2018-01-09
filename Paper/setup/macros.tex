@@ -1,0 +1,66 @@
+% !TEX root = ../main.tex
+%------------------------Custom Commands----------------------%
+
+% = = = Latin Short-forms (ie, eg, etc, et al)
+\usepackage{xspace}
+\newcommand{\etal}{\textit{et al.}\xspace}
+\newcommand{\etc}{\textit{etc.}\xspace}
+\newcommand{\ie}{\textit{i.e.,}\xspace}
+\newcommand{\eg}{\textit{e.g.,}\xspace}
+\newcommand{\cf}{\textit{cf.}\xspace}
+\newcommand{\supra}{\textit{Supra}\xspace}
+
+% = = = Arrow -> (\lt)
+\newcommand{\lt}{$\rightarrow$\xspace}
+
+% = = = Keywords (kw)
+\newcommand{\kw}[1]{\textsf{#1}}
+
+% = = = Colored text (textblue)
+\newcommand{\textblue}[1]{\textcolor{blue}{#1}}
+
+% = = = Compact Lists (compactlist, compactlistn)
+\newenvironment{compactlist}
+  {\begin{itemize} 
+  \setlength{\itemsep}{0pt} 
+  \setlength{\parskip}{0pt}} 
+  {\end{itemize}}
+  
+\newenvironment{compactlistn}
+  {\begin{enumerate} 
+  \setlength{\itemsep}{0pt} 
+  \setlength{\parskip}{0pt}} 
+  {\end{enumerate}}
+  
+\renewcommand{\labelitemi}{$\bullet$}
+  
+
+%------------------------Crypto----------------------%  
+
+% = = = Zp, Gq and Zq
+\newcommand{\Zp}{\mathbb{Z}^{*}_{p}}
+\newcommand{\Zq}{\mathbb{Z}_{q}}
+\newcommand{\Gq}{\mathbb{G}_{q}}
+
+% = = = Encryption, etc.
+\newcommand{\Enc}[1]{\mathsf{Enc}(#1)}
+\newcommand{\EncB}[1]{\llbracket #1 \rrbracket}
+\newcommand{\ReRand}[1]{\mathsf{ReRand}(#1)}
+\newcommand{\Hash}[1]{\mathcal{H}(#1)}
+\newcommand{\Sign}[1]{\mathsf{Sig}(#1)}
+\newcommand{\Comm}[1]{\mathsf{Comm}(#1)}
+\newcommand{\Open}[1]{\mathsf{Open}(#1)}
+
+% = = = Tuples
+\newcommand{\tuple}[1]{\left \langle #1 \right \rangle}
+
+
+%-------------------Custom for Paper----------------------%
+
+% = = = Name
+\newcommand{\Name}{\textsf{System Name}\xspace}
+
+
+
+
+
