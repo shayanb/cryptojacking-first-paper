@@ -4,10 +4,9 @@
 Bitcoin ~\cite{nakamoto2008bitcoin} emerged almost a decade ago as an open source project, which mushroomed into an industry made up of many different cryptocurrencies that collectively are valued at more than \$500 billion USD as of this report`s writing\footnote{Coinmarketcap - Global Charts - Accessed: 2017-12-14 \url{https://coinmarketcap.com/}}. Consequently, every day people new to the concept of cryptocurrencies look for a quick and simple way to acquire some crypto-wealth. In the early days many decided to speed up the process of mining\footnote{Mining is the process to verify transactions in a blockchain and get rewards for doing the work. Details of how mining works is beyond the scope of this paper.} for themselves by combining CPUs and GPUs to work together. Other groups of people deployed snippets of JavaScript code on websites that recruited their visitors’ CPU power, often unknowingly, to mine for them as part of a bigger mining network (a.k.a mining pool). However, both approaches quickly became infeasible as the computing power required to mine bitcoins grew exponentially to over 12 petahashes ~\footnote{Bitcoin hash rate - Accessed: 2017-11-20\url{https://blockchain.info/charts/hash-rate}}. This was due to the emergence of application-specific integrated circuits (ASICs) and collective mining pools, which continue the mining race to this day. As the years passed and a few key cryptocurrencies emerged as the market leaders, the concept of browser mining largely became forgotten. Today, the most common way for the average person to acquire cryptocurrencies is to purchase them. It came as a surprise to many when stories began to circulate on popular media outlets this year about websites mining cryptocurrencies through browsers again. And even more intriguingly, high profile websites were now involved, and the practice seemed to be growing at a quick pace.
 
 \begin{figure}[t]
-\begin{center}
+\centering
 \includegraphics[width=\linewidth]{figures/browser_mining.png}
 \caption{Search interest for ``browser mining'' over time.\label{fig:interest}}
-\end{center}
 \end{figure}
 
 
@@ -37,76 +36,72 @@ Coinhive and other similar websites, are simply Monero mining pools which offer 
 
 \input{sections/timeline}
 
-
 \section{State of Affairs}
 
 
 In order to find out how browser mining is changing internet use, the approach taken was to find measurements of the impact it causes. One approach was to see what the search interest over time for such services is. 
 
-%\vspace*{-1mm}
-\begin{center}
-	\makebox[1\linewidth]{\includegraphics[width=\linewidth]{figures/usage_over_time2.png}}
-	\caption{Google Trend - Search interest over last 12 months}
-\end{center}
-%\vspace*{-1mm}
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/usage_over_time2.png}
+\caption{Google Trend - Search interest over last 12 months}
+\end{figure}
 
 It seems that there has been more interest in Coinhive than the broader, related search term ``Browser mining''. Comparing to other services offering Monero browser mining API, Coinhive had the advantage of being the first to offer the service, hence more interest at the time of writing. There has not been enough data and evidence of usage for other services to analyze, thus the focus of this paper is on the impact of Coinhive scripts on the internet. 
 
 The next step was to see how many websites are deploying Coinhive scripts by using internet scanners such as Zmap\footnote{\url{https://zmap.io}}. It was of more interest to see what the trend of this usage was, and for this purpose historical data was required. 
 
-%\vspace*{-2mm}
-\begin{lstlisting}[caption={BigQuery SQL query to find websites using coinhive miner script using censys.io datasets},label={lst:bigquery},language=sql,linewidth=\linewidth]
-SELECT domain, tags, p80.http_www.get.headers.content_language, p80.http_www.get.headers.server, p80.http.get.headers.x_powered_by, p80.http.get.title , p80.http_www.get.body as wwwbody, p80.http.get.body as plainbody
-FROM `censys-io.domain_public.20171123`
-WHERE STRPOS(p80.http.get.body, 'coinhive.min.js') >0 or STRPOS(p80.http_www.get.body, 'coinhive.min.js') >0)
-\end{lstlisting}
-%\vspace*{-4mm}
+%\begin{lstlisting}[caption={BigQuery SQL query to find websites using coinhive miner script using censys.io datasets},label={lst:bigquery},language=sql,linewidth=\linewidth]
+%SELECT domain, tags, p80.http_www.get.headers.content_language, p80.http_www.get.headers.server, p80.http.get.headers.x_powered_by, p80.http.get.title , p80.http_www.get.body as wwwbody, p80.http.get.body as plainbody
+%FROM `censys-io.domain_public.20171123`
+%WHERE STRPOS(p80.http.get.body, 'coinhive.min.js') >0 or STRPOS(p80.http_www.get.body, 'coinhive.min.js') >0)
+%\end{lstlisting}
 
 Using censys.io BigQuery dataset ~\cite{censys15}, it is feasible to query for such trends. The method used to gather these data is simply looking for the `coinhive.min.js` script within the body of the website page, however these services are evolving to obfuscate or use randomized URLs to prevent detection\footnote{\url{https://twitter.com/bad_packets/status/940333744035999744}}.
 
-%\vspace*{-1mm}
-\begin{center}
-	\makebox[1\linewidth]{\includegraphics[width=\linewidth]{figures/usage_of_coinhive_over_time.png}}
-	\caption{Usage of CoinHive Miner scripts in top 1 million websites over time}
-\end{center}
-%\vspace*{-2mm}
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/usage_of_coinhive_over_time.png}
+\caption{Usage of CoinHive Miner scripts in top 1 million websites over time}
+\end{figure}
+
 
 As seen in the chart above, the adoption of this script was substantial in the first days of its release. However, progress slowed down as ad-blockers and organizations started to block Coinhive's website. The initial purpose of this service, as claimed by Coinhive, was to replace ads and cover server costs for webmasters. As the service did not require that website's received user consent before beginning to mine, it started to be used maliciously in user`s browsers. This type of usage resulted in Coinhive being included in the top-10 most wanted malware list after some famous ransomware ~\cite{checkpoint}. 
 
-%\vspace*{-3mm}
-\begin{center}
-	\makebox[1\linewidth]{\includegraphics[width=0.75\linewidth]{figures/coinhive_blocked.png}}
-	\caption{Concordia University has blocked coinhive.com website}
-\end{center}
-%\vspace*{-2mm}
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/coinhive_blocked.png}
+\caption{Our university has blocked coinhive.com website}
+\end{figure}
+
 
 This helped the copycats to gain some market attention, but also pushed Coinhive developers to think of other methods that would be more focused on user consent and bypassing blockage for running such scripts. Coinhive introduced another domain and service called ``Authedmine'' , which requires user`s consent to start mining in the browser. This service did not get the same attention as the original service, but it did inspire discussions regarding the ethics of such services, which is covered in Discussion section of this paper. 
-%TALKED ABOUT ETHICS? UPDATE HERE
-%\vspace*{-1mm}
-\begin{center}
-	\makebox[1\linewidth]{\includegraphics[width=\linewidth]{figures/usage_of_authedmine_over_time.png}}
+
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/usage_of_authedmine_over_time.png}
 	\caption{Usage of AuthedMine Miner scripts in top 1million websites over time}
-\end{center}
-%\vspace*{-1mm}
+\end{figure}
+
 
 Most of these scripts discovered were defaulted to use around 25\% of user`s CPU, which can be justified as it will be under the threshold of attracting the user`s attention, and it could be argued as fair-usage of their hardware. During the first few days, however, there were some reports of 100\% CPU usage when visiting websites containing these scripts~\cite{piratesbayblog}, which can be characterized as malicious.
 
-\begin{center}
-	\makebox[1\linewidth]{\includegraphics[width=\linewidth]{figures/windows_cpu_usage.png}}
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/windows_cpu_usage.png}
 	\caption{Comparison of CPU usage of browser without and with browser mining enabled}
-\end{center}
-%\vspace*{-2mm}
+\end{figure}
 
 \subsection{\textbf{Profitability Experiment}}
 \label{profitabilitexperiment}
 By reaching out to one of the biggest coinhive campaigns operator, which was a domain parking service and was running coinhive script on over 11,000 parked websites, conducted over period of three months, we were able to gather some data to estimate profitability for websites with high traffic but short visits \footnote{Thanks to Faraz Fallahi \url{https://github.com/fffaraz}}. Over 97,000 users visited these websites for an average of 24 seconds per session.
 
-%\vspace*{-1mm}
-\begin{center}
-	\makebox[1\linewidth]{\includegraphics[width=\linewidth]{figures/coinhive_experiment_11k.png}}
-	\caption{Results from Coinhive and Google Analytics dashboards}
-\end{center}
-%\vspace*{-1mm}
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/coinhive_experiment_11k.png}
+\caption{Results from Coinhive and Google Analytics dashboards}
+\end{figure}
 
 This experiment showed that even though the number of users visiting was significant, the profit from those visits was below expectations. For the period examined, the revenue was 0.02417 Monero, which at the time of writing is equivalent to 7.69 USD.
 
@@ -122,12 +117,13 @@ The attack surface to abuse users' browsers is broad. If the browsers do not blo
 \item \textbf{Man-in-the-middle attack:} Any internet service provider or free public wireless connection can inject the script to all the plain text traffic that goes through their routers. Advertisement code injection has been seen in practice ~\cite{vergeadinjection}. Also there have been reports of similar injections of browser mining scripts at certain Starbucks free Wi-Fi hotspots\footnote{\url{https://twitter.com/imnoah/status/936948776119537665}}.
 \end{itemize}
 
-%\vspace*{-5mm}
-\begin{center}
-	\makebox[1\linewidth]{\includegraphics[width=\linewidth]{figures/attack_vectors.png}}
-	\caption{Attack vectors to inject miner scripts in webpages}
-\end{center}
-%\vspace*{-2mm}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/attack_vectors.png}
+\caption{Attack vectors to inject miner scripts in webpages}
+\end{figure}
+
 
 \subsection{\textbf{User Impact}}
 Most browser mining code is ran without the consent, nor knowledge, of the users involved. As previously mentioned, the websites that have been found running JavaScript code for the purpose of mining usually employed Coinhive`s API. One such website, for example, ThePirateBay.org~\cite{bbcmintcrypto}, which ran the JavaScript code when users searched for torrent files. Perhaps unsurprisingly, there was no notice in their Privacy Policy nor visible warning on any part of the website that informed their users of this activity. This resulted in a backlash against the website, which responded with the following statement, ``Do you want ads or do you want to give away a few of your CPU cycles every time you visit the site?'' ~\cite{piratesbayblog}. While they admitted to their testing of browser mining, their notice came after the fact and resulted in the removal of the JavaScript code altogether due to upset users. This is in contrast to the banners users are presented with upon the first visit to a website that warns them of the website`s policy on cookies, which is enforced today through EU laws~\cite{eucookie}. It is now widely known that these cookies can be used to track users across the internet, so cookie banners can act as a reminder and allow the user to make better informed decisions regarding their browsing habits. Without any type of disclaimer for users, websites have been commandeering their users` CPU resources for their business and personal gain. This results in higher energy bills for the user, along with accelerated device degradation, slower system performance, and poor web experience\footnote{The Performance Impact of Cryptocurrency Mining on the Web \url{https://discuss.httparchive.org/t/the-performance-impact-of-cryptocurrency-mining-on-the-web/1126}}~\cite{gaurdianelectricity}.
