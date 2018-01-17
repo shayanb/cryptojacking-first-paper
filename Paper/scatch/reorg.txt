@@ -1,0 +1,47 @@
+== Intro
+
+Google trends stays here (not scientific enough for main body)
+
+== Contributions
+
+1) Background
+2) Measurements
+3) Ethical implications
+
+== Preliminaries and Related Work
+
+1) Browser mining in early Bitcoin -> need more on this! -> JSMiner and Minecrunch
+
+2) Mining background -> CPU to GPU to ASIC for Bitcoin, mining pools, etc
+
+3) Monero -> move current discussion, add results from Princeton attack paper, explain anonymity better (more nuance), add some discussion on Monero's use on dark market (see if any papers from Nicolas Cristin, Tyler Moore, etc touch on Monero).
+
+Note: Satoshi and "one-CPU-one-vote" -> not really true, he actually talks about GPUs on mailing list -> find quote and add nuance
+
+3) Cryptohive -> 
+
+=== Threat Model
+
+Move security here. Expand with STRIDE?
+Users have different expectations for browsers than OSes. People understand that installing software leads to bad things (malware) but they except their browser to contain bad things and nothing that bad should happen merely by browsing. Thus in-browser crypto-jacking is worst. 
+Using a Botnet to mine -> Botcoin paper
+
+
+=== Measurements
+
+1) Google trends -> ok but not great
+2) Zmap -> great
+3) Profitability -> great, more discussion of source of data set
+
+=== Ethics and consent
+
+TBD
+
+=== Mitigation
+
+1) Technical prevent mechanisms: block libraries, block monero, govern javascript execution
+2) Regulatory mechanisms: header like `do not track'
+3) Consent: enable within sandbox (maybe extension instead of javascript, which ensures user consent, and can server add-free content)
+
+=== Future work
+
