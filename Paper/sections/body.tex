@@ -67,7 +67,11 @@ It seems that there has been more interest in Coinhive than the broader, related
 The next step was to see how many websites are deploying Coinhive scripts by using internet scanners such as Zmap\footnote{\url{https://zmap.io}}. It was of more interest to see what the trend of this usage was, and for this purpose historical data was required. 
 
 \begin{lstlisting}[caption={BigQuery SQL query to find websites using coinhive miner script using censys.io datasets},label={lst:bigquery},language=sql,linewidth=\linewidth]
-SELECT domain, tags, p80.http_www.get.headers.content_language, p80.http_www.get.headers.server, p80.http.get.headers.x_powered_by, p80.http.get.title, p80.http_www.get.body as wwwbody, p80.http.get.body as plainbody FROM \`censys-io.domain_public.20171123` WHERE STRPOS(p80.http.get.body, 'coinhive.min.js') >0 or STRPOS(p80.http_www.get.body, 'coinhive.min.js') >0)
+
+SELECT domain, tags, p80.http_www.get.headers.content_language, p80.http_www.get.headers.server, p80.http.get.headers.x_powered_by, p80.http.get.title, p80.http_www.get.body as wwwbody, p80.http.get.body as plainbody 
+FROM censys-io.domain_public.20171123
+WHERE STRPOS(p80.http.get.body, coinhive.min.js) > 0 or STRPOS(p80.http_www.get.body, coinhive.min.js) >0)
+
 \end{lstlisting}
 
 Using censys.io BigQuery dataset ~\cite{censys15}, it is feasible to query for such trends. The method used to gather these data is simply looking for the `coinhive.min.js` script within the body of the website page, however these services are evolving to obfuscate or use randomized URLs to prevent detection\footnote{\url{https://twitter.com/bad_packets/status/940333744035999744}}.
