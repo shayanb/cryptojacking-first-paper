@@ -1,40 +1,52 @@
 % !TEX root = ../main.tex
 
 % = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = %
+%
+%
+%
+%
+%
+%
+% = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = %
 
+\section{Threat Model}
 
-%TODO: Expand here
-
-\section{Threat (?) Model}
-The attack surface to abuse users' browsers is broad, there are different actors whom can abuse this functionality for their own profit without user consent nor knowledge. There are multiple vectors a malicious actor can inject mining scripts in the website's codebase:
+The attack surface to abuse users' browsers through cryptojacking is broad, and there are multiple vectors where various entities can inject mining scripts in the website's codebase. We summarize those here. 
 
 \subsection{Webmaster initiated} 
 
-As discussed before, the website administrator can add the mining script to the webpage without informing users. Website owners may choose to monetize their site with cryptojacking scripts if they have been blacklisted or blocked by standard advertising platforms. In one example, Dutch researcher Sijmen Ruwhof found Coinhive on a large Russian website offering child pornography to users. In this case, revenue estimates, based on the website traffic data available, were roughly \$10,000 a month after converting the value of XMR mined to USD~\cite{coinhiveonchildporn}
+A website administrator can add a mining script to her webpage, with or without informing users. Website owners may do this to monetize their sites, especially when they have been blacklisted or blocked by standard advertising platforms. In one example, a researcher found Coinhive on a large Russian website offering child pornography to users~\cite{coinhiveonchildporn}. Revenue estimates, based on the website traffic data available, were roughly \$10,000 a month after converting the value of XMR mined to USD.
 
-\subsection{Ad network} 
+\subsection{Mixed content} 
 
-Similar to the claimed Showtime case~\cite{showtimehive}, the advertisement publisher can inject miner script to any website they have ad space in instead of showing legitimate ads (more on this in User Impact section).
+Many websites serve active Javascript from third parties within their own webpages. This could be ads from an ad network or tools for tracing users of their site. Third parties with these privileges can inject cryptojacking scripts into the sites that use them. For example, Showtime claims this is how CoinHive was deployed within their site~\cite{showtimehive}. In two separate incidents, Coinhive was injected into the websites of Movistar\footnote{Movistar is a major telecommunications brand owned by Telefonica, operating in Spain and in many Hispanic American countries \url{https://www.movistar.com/}} and Globovision\footnote{Globovision is a 24-hour television news network in Venezuela and Latin America.\url{http://globovision.com/}} using Google Tag Manager.\footnote{Google Tag Manager is a tag management system created by Google to manage JavaScript and HTML tags used for tracking and analytics on websites} Movistar stated that Coinhive was not put on their website by a hacker, but instead was due to \textit{``internal error''} while they were conducting ``production tests.'' No statement was provided by Globovision on why the cryptojacking scripts appeared on their site on November 15, 2017~\cite{googletagcoinhive}.
 
-\subsection{Breached website} 
-An attacker can hack a service provider's codebase and inject their mining code to the one or many websites at once, simply turning access to money. A recent example of this type of attack, discovered on Thanksgiving Day by security researcher Troy Mursch, occurred to LiveHelpNow's SDK that resulted in unsolicited mining when accessing their chat system through all website using the char support service~\cite{chatsupporthack}.
+\subsection{Browser extensions} 
 
-On October 13, Coinhive was found on the political fact-checking website Politifact\footnote{PolitiFact: Fact-checking US politics \url{https://politifact.com/}}. A compromised JavaScript library was found to be injecting the cryptojacking scripts. The malicious code remained on the site for at least four hours before it was removed~\cite{politifactcoinhive}. In a statement provided to The Wall Street Journal, PolitiFact Executive Director Aaron Sharockman stated ``Hackers were able to install their script on the fact-checking website after discovering a misconfigured cloud-computing server.`` ~\cite{politifactcoinhivewsj}.
+Cryptojacking was not limited to websites in 2017. The chrome extension Archive Poster remained on the Chrome Web Store for days while silently cryptojacking an unknown portion of their 100,000+ users. After multiple user reports, followed by multiple news media outlets covering the issue, the extension was removed~\cite{chromeextentioncoinhive}. 
 
-\subsection{Man-in-the-middle attack} 
+\subsection{Breaches} 
 
-Any internet service provider or free public wireless connection can inject the script to all the plain text traffic that goes through their routers. Advertisement code injection has been seen in practice ~\cite{vergeadinjection}. Also there have been reports of similar injections of browser mining scripts at certain Starbucks free Wi-Fi hotspots\footnote{\url{https://twitter.com/imnoah/status/936948776119537665}}.
+If an attackers is able to breach principle websites, extensions, or the scripting services they use, they can inject cryptojacking scripts that will impact the site's users without the site's knowledge or consent. For example, a researcher found a malicious modification to webchat system LiveHelpNow's SDK; it resulted in unsolicited mining across all websites using their char support service~\cite{chatsupporthack}. In another example, Coinhive was found on the political fact-checking website Politifact.\footnote{PolitiFact: Fact-checking US politics.\url{https://politifact.com/}} A compromised JavaScript library was found to be injecting the cryptojacking scripts. The malicious code remained on the site for at least four hours before it was removed~\cite{politifactcoinhive}. PolitiFact Executive Director stated ``Hackers were able to install their script on the fact-checking website after discovering a misconfigured cloud-computing server''~\cite{politifactcoinhivewsj}.
 
-In two separate incidents, Coinhive was injected into the websites of Globovision\footnote{Globovision is a 24-hour television news network in Venezuela and Latin America.\url{http://globovision.com/}} and Movistar\footnote{Movistar is a major telecommunications brand owned by Telefonica, operating in Spain and in many Hispanic American countries \url{https://www.movistar.com/}} using Google Tag Manager\footnote{Google Tag Manager is a tag management system created by Google to manage JavaScript and HTML tags used for tracking and analytics on websites}. Movistar stated that Coinhive was not put on their website by a hacker, but instead was due to \textit{``internal error``} while they were conducting ``production tests``. No statement was provided by Globovision on why the cryptojacking scripts appeared on their site on November 15, 2017~\cite{googletagcoinhive}.
 
-\subsection{Other Browser related vectors} %TODO: maybe a better title? or even just in discussion?
-Cryptojacking was not limited to websites in 2017 as we saw Chrome extensions also being affected. One such extension, Archive Poster, remained on the Chrome Web Store for days while silently cryptojacking an unknown portion of their 100,000+ users. Despite multiple user reports, Google`s security team did not remove the extension until multiple news media outlets covered the issue~\cite{chromeextentioncoinhive}. 
+\subsection{Man-in-the-middle} 
 
-One possible solution is to enforce user consent on service provider level. One example for this is that Coinhive started Authedmine to enforce user consent before running the miners, Although Clickjacking~\cite{rydstedt2010busting} and other methods of obfuscation has been used to bypass this enforcement model and run the miner code without the proper authorization.
+A user's webtraffic is often routed through intermediaries that may have plaintext access to content. For example, internet service providers or free public wireless routers can inject cryptojacking scripts into non-HTTPS traffic. Advertisement code injection has been seen in practice ~\cite{vergeadinjection}. There have been assertions of similar injections of browser mining scripts at certain Starbucks free Wi-Fi hotspots.\footnote{\url{https://twitter.com/imnoah/status/936948776119537665}}
+
+
+
+
 
 
 % = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = %
-
+%
+%
+%
+%
+%
+%
+% = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = %
 
 \section{Measurements}
 
@@ -143,6 +155,8 @@ Given the recent interest some websites have shown in regard to browser mining, 
 % = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = %
 
 \section{Mitigations}
+
+One possible solution is to enforce user consent on service provider level. One example for this is that Coinhive started Authedmine to enforce user consent before running the miners, Although Clickjacking~\cite{rydstedt2010busting} and other methods of obfuscation has been used to bypass this enforcement model and run the miner code without the proper authorization.
 
 Similar to regulations for cookies and user tracking there is a need to regulate browser mining, primarily to notify users of the existence of these scripts on the webpages they visit. Also, there is a need to standardize this model, so to answer some of these questions: If every website uses a browser miner and users have many tabs open, how are CPU resources shared between them? How will the behaviour of these scripts change based on the device they are running on? If device is on power saving mode, how will that affect the execution of these scripts?
 
