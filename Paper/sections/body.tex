@@ -72,7 +72,9 @@ WHERE STRPOS(p80.http.get.body, coinhive.min.js) > 0 or STRPOS(p80.http_www.get.
 
 \end{lstlisting}
 
-Using censys.io BigQuery dataset ~\cite{censys15}, it is feasible to query for such trends. The method used to gather these data is simply looking for the `coinhive.min.js` script within the body of the website page, however these services are evolving to obfuscate or use randomized URLs to prevent detection\footnote{\url{https://twitter.com/bad_packets/status/940333744035999744}}.
+Using censys.io BigQuery dataset ~\cite{censys15}, it is feasible to query for such trends. The method used to gather these data is simply looking for the `coinhive.min.js` script within the body of the website page. These findings are corroborated by another search engine, PublicWWW, which indexes the source code of publicly available websites. Using PublicWWW's dataset, over 30,000 websites were found to have the `coinhive.min.js` library~\cite{badpacketspublicwww}.
+ 
+However, cryptojacking services are evolving to use obfuscated JavaScript and randomized URLs to evade detection\footnote{\url{https://twitter.com/bad_packets/status/940333744035999744}}. An example of these methods can be found in the cryptojacking service provider called Minr. In this case, the script is automatically obfuscated for users implementing the code. In addition, the domain names used by Minr frequently change to circumvent blocklists and anti-malware software.
 
 \begin{figure}[t]
 \centering
@@ -90,7 +92,13 @@ As seen in the chart above, the adoption of this script was substantial in the f
 \end{figure}
 
 
-This helped the copycats to gain some market attention, but also pushed Coinhive developers to think of other methods that would be more focused on user consent and bypassing blockage for running such scripts. 
+This helped Coinhive copycats gain some market attention as they came online late in 2017. Increased competition pushed Coinhive developers to think of other methods that would be more focused on user consent and bypassing blockage for running such scripts.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/non-coinhive-miners.png}
+	\caption{Copycats of coinhive}
+\end{figure}
 
 
 \subsection{Clientside Impact}
@@ -119,13 +127,21 @@ Coinhive developers estimate a monthly revenue of about 0.3 XMR (~\$101) for a w
 Through correspondence with one of the biggest coinhive campaigns operator, which was a domain parking service and was running coinhive script on over 11,000 parked websites, conducted over period of three months, we were able to gather some data to estimate profitability for websites with high traffic but short visits \footnote{Collaborated with Faraz Fallahi \url{https://github.com/fffaraz}}. Over 97,000 users visited these websites for an average of 24 seconds per session.
 
 
-%TODO: Separate these charts
-
 \begin{figure}[t]
 \centering
-\includegraphics[width=\linewidth]{figures/coinhive_experiment_11k.png}
-\caption{Results from Coinhive and Google Analytics dashboards}
+\includegraphics[width=\linewidth]{figures/experiment_coinhive_results.png}
+\caption{Coinhive dashboard showing the earnings over the course of 3 months}
 \end{figure}
+
+
+
+%TODO: THIS CAN BE REMOVED AS WE TALK ABOUT THE NUMBERS IN THE TEXT
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/experiment_analytics_results.png}
+\caption{Google Analytics dashboard}
+\end{figure}
+
 
 This experiment showed that even though the number of users visiting was significant, the profit from those visits was below expectations. For the period examined, the revenue was 0.02417 Monero, which at the time of writing is equivalent to 7.69 USD.
 
