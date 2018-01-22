@@ -69,13 +69,42 @@ WHERE STRPOS(p80.http.get.body, coinhive.min.js) > 0 or STRPOS(p80.http_www.get.
 \caption{A BigQuery SQL query to find websites that embed the CoinHive script using a dataset of the top one million sites from censys.io. \label{lst:bigquery}}
 \end{figure}
 
+
+The same methodology was used on other datasets, such as PublicWWW\footnote{Search Engine for Source Code \url{https://publicwww.com/}}  to find the usage of Coinhive and other similar services over the internet. Table~\ref{tab:findcoinhive} shows the keywords used to identify these services, however as discussed further, this method might not be usable in near future as such services are using obfuscation methods to hide their scripts. The result can be found on Figure~\ref{fig:coinhivevscopycats} and Figure~\ref{fig:copycat}.
+
+
+
+\begin{table}[]
+\centering
+\caption{Coinhive miner data was gathered by totalling the number of websites, indexed by PublicWWW by 12/24/2017, which had the following libraries in their source codes:  }
+\label{tab:findcoinhive}
+\begin{tabular}{|cc|c|}
+\hline
+\textbf{Website} & \textbf{Results} & \textbf{Query Parameter}  \\ \hline
+JSEcoin & 1131 & `load.jsecoin.com`   \\  \hline
+Crypto-Loot & 695 & `CryptoLoot.Anonymous`  \\  \hline
+Minr & 324 & `minr.pw`,`st.kjli.fi`, \\
+~  & ~ &  `abc.pema.cl`,`metrika.ron.si`, \\  
+~  & ~ &  `cdn.rove.cl`,`host.d-ns.ga`, \\  
+~  & ~ &  `static.hk.rs`,`hallaert.online`, \\  
+~  & ~ &  `cnt.statistic.date`,`cdn.static-cnt.bid` \\     \hline
+CoinImp & 317 &`www.coinimp.com/scripts/min.js`,  \\  \hline
+~  & ~ &  `www.hashing.win` \\     \hline
+ProjectPoi (PPoi) & 116 & `projectpoi.min`  \\  \hline
+AFMiner & 46 & `afminer.com/code/miner.php`	  \\  \hline
+Papoto & 42 & `papoto.com/lib/papoto.js`  \\ \hline
+\end{tabular}
+\end{table}
+
+
+
 \begin{figure}[t]
 \centering
 \includegraphics[width=\linewidth]{figures/usage_of_coinhive_over_time.png}
 \caption{The number of instances of the Coinhive miner scripts found using the query in Figure~\ref{lst:bigquery} in top one million websites over a three month period beginning with the release of Coinhive in September 2017.\label{fig:topmil}}
 \end{figure}
 
-We focus on measuring the prevalence of Coinhive scripts deployed on internet sites. We use the censys.io BigQuery dataset ~\cite{censys15} for the top million sites indexed by Zmap.\footnote{\url{https://zmap.io}} We simply look for the \texttt{coinhive.min.js} script within the body of the website page. The query we use is in Figure~\ref{lst:bigquery} and the results over a two month period are provided in Figure~\ref{fig:topmil}. These findings are corroborated by another search engine, PublicWWW, which indexes the source code of publicly available websites. Using PublicWWW's dataset, over 30,000 websites were found to have the \texttt{coinhive.min.js} library~\cite{badpacketspublicwww}. As seen from our data in Figure~\ref{fig:topmil}, the adoption of this script was substantial in the first days of its release. However, progress slowed down at the same time as ad-blockers and organizations started to block Coinhive's website. The initial purpose of this service, as claimed by Coinhive, was to replace ads and cover server costs for webmasters. As the service did not require that website's received user consent before beginning to mine, it started to be used maliciously in user's browsers. This type of usage resulted in Coinhive being included in some company's top-10 most wanted malware list~\cite{checkpoint}.
+Based on the fact that coinhive is the dominant website offering in-browser mining, See Figure~\ref{fig:coinhivevscopycats}, we focus on measuring the prevalence of Coinhive scripts deployed on internet sites. We use the censys.io BigQuery dataset ~\cite{censys15} for the top million sites indexed by Zmap.\footnote{\url{https://zmap.io}} We simply look for the \texttt{coinhive.min.js} script within the body of the website page. The query we use is in Figure~\ref{lst:bigquery} and the results over a two month period are provided in Figure~\ref{fig:topmil}. These findings are corroborated by another search engine, PublicWWW, which indexes the source code of publicly available websites. Using PublicWWW's dataset, over 30,000 websites were found to have the \texttt{coinhive.min.js} library~\cite{badpacketspublicwww}. As seen from our data in Figure~\ref{fig:topmil}, the adoption of this script was substantial in the first days of its release. However, progress slowed down at the same time as ad-blockers and organizations started to block Coinhive's website. The initial purpose of this service, as claimed by Coinhive, was to replace ads and cover server costs for webmasters. As the service did not require that website's received user consent before beginning to mine, it started to be used maliciously in user's browsers. This type of usage resulted in Coinhive being included in some company's top-10 most wanted malware list~\cite{checkpoint}.
 
 This type of measurement will become less accurate moving forward. Cryptojacking services are evolving to use obfuscated JavaScript and randomized URLs to evade detection\footnote{\url{https://twitter.com/bad_packets/status/940333744035999744}}. An example of these methods can be found in the cryptojacking service provider called Minr. In this case, the script is automatically obfuscated for users implementing the code. In addition, the domain names used by Minr frequently change to circumvent blocklists and anti-malware software.
 
@@ -85,10 +114,17 @@ This type of measurement will become less accurate moving forward. Cryptojacking
 \caption{Our university has categorized the coinhive.com website as malicious and has blocked it.\label{fig:concordia}}
 \end{figure}
 
+
 \begin{figure}[t]
 \centering
-\includegraphics[width=0.9\linewidth]{figures/non-coinhive-miners.png}
-\caption{Share of websites using a Coinhive alternative as gathered by a researcher from PublicWWW (figure used with permission~\cite{badpacketspublicwww})\label{fig:copycat}}
+\includegraphics[width=0.9\linewidth]{figures/coinhive-miners-pie.png}
+\caption{Share of websites using a Javascript cryptocurrency miner \label{fig:coinhivevscopycats}}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.9\linewidth]{figures/non-coinhive-miners-pie.png}
+\caption{Share of websites using a Coinhive alternative \label{fig:copycat}}
 \end{figure}
 
 \begin{figure}[t]
@@ -152,7 +188,7 @@ In addition to regulation and standardizing, better security design is required 
 
 Surveys with larger sample size and diversity is required to gauge users acceptance. These surveys should answer how much CPU power users are willing to volunteer, and if battery impact would change their affinity for participation.
 
-Browser developers are starting to talk about throttling or blocking such scripts\footnote{Please consider intervention for high cpu usage js \url{https://bugs.chromium.org/p/chromium/issues/detail?id=766068}}  ~\cite{operanocoin}, however this discussion need further considerations as throttling should happen based on some variables, in which might affect legitimate applications as well. Also if they switch to user notification for high CPU usage per website, the notification itself might not be affective as desired~\cite{SHB11}\cite{SEAAC09}.
+Browser developers are starting to talk about throttling or blocking such scripts\footnote{Please consider intervention for high cpu usage js \url{https://bugs.chromium.org/p/chromium/issues/detail?id=766068}}~\cite{operanocoin}, however this discussion need further considerations as throttling should happen based on some variables, in which might affect legitimate applications as well. Also if they switch to user notification for high CPU usage per website, the notification itself might not be affective as desired~\cite{SHB11}\cite{SEAAC09}.
 Browsers such as Opera, have taken a stance against cryptojacking scripts and blocked them via "NoCoin" blacklist ~\cite{operanocoin}. The effectiveness of using a blacklist to block such activities is still not clear. %maybe a bit more on this? meaning that as seen so far, cryptojackers can just use new domains/ips to bypass these blacklists
 
 Browser mining has been shown to not be as efficient as native mining applications today. Therefore, optimizations on how browsers pass system calls to the operating system can be made, or there can even be browsers designed specifically to support efficient browser mining. 
