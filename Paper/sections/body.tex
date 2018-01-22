@@ -113,28 +113,19 @@ Most coinjacking scripts discovered were configured to use around 25\% of user's
 \subsection{Profitability}
 \label{profitabilitexperiment}
 
-Coinhive developers estimate a monthly revenue of about 0.3 XMR (~\$101) for a website with 10-20 active miners, which would be users with longer duration of visit on the website~\cite{coinhive}.
-
-Through correspondence with one of the biggest coinhive campaigns operator, which was a domain parking service and was running coinhive script on over 11,000 parked websites, conducted over period of three months, we were able to gather some data to estimate profitability for websites with high traffic but short visits \footnote{Collaborated with Faraz Fallahi \url{https://github.com/fffaraz}}. Over 97,000 users visited these websites for an average of 24 seconds per session.
-
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/experiment_analytics_results.png}
+\caption{Google Analytics dashboard showing the number of visitors to a domain parking service of 11\,000 domains.\label{fig:domain2}}
+\end{figure}
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=\linewidth]{figures/experiment_coinhive_results.png}
-\caption{Coinhive dashboard showing the earnings over the course of 3 months}
+\caption{Coinhive dashboard showing the earnings of a domain parking service that runs Coinhive on 11\,000 domains. Over the course of about 3 months, the operator earned 0.02417 XMR (currently \$7.69 USD).\label{fig:domain1}}
 \end{figure}
 
-
-
-%TODO: THIS CAN BE REMOVED AS WE TALK ABOUT THE NUMBERS IN THE TEXT
-\begin{figure}[t]
-\centering
-\includegraphics[width=\linewidth]{figures/experiment_analytics_results.png}
-\caption{Google Analytics dashboard}
-\end{figure}
-
-
-This experiment showed that even though the number of users visiting was significant, the profit from those visits was below expectations. For the period examined, the revenue was 0.02417 Monero, which at the time of writing is equivalent to 7.69 USD.
+Coinhive developers estimate a monthly revenue of about 0.3 XMR (about \$101 USD) for a website with 10-20 active miners~\cite{coinhive}. We sought to validate this estimation with a real world data set provided to us.\footnote{In collaboration and with thanks to Faraz Fallahi: \url{https://github.com/fffaraz}} One of the biggest Coinhive campaign operators is a domain parking service. It runs Coinhive on over 11\,000 parked websites. While visits to parked domains are considerably shorter than an average website, the data spans a period of three months and gives some insight into the profitability of cryptojacking. During the experimental period of about 3 months, the accumulate 105\,580 user sessions for an average of 24 seconds per session. For the period examined, the revenue was 0.02417 XMR (Monero's currency) which at the time of writing is valued at \$7.69 USD. Further detail is provide in Figures~\ref{fig:domain2} and \ref{fig:domain1}. While an A/B test was not setup to determine how much traditional web advertising would have brought in, freely available web calculator tools suggest we might expect an order or two of magnitude greater for comparable traffic. 
 
 
 % = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = %
@@ -144,7 +135,13 @@ This experiment showed that even though the number of users visiting was signifi
 
 \section{Mitigations}
 
-One possible solution is to enforce user consent on service provider level. One example for this is that Coinhive started Authedmine to enforce user consent before running the miners, Although Clickjacking~\cite{rydstedt2010busting} and other methods of obfuscation has been used to bypass this enforcement model and run the miner code without the proper authorization.
+We discuss the ethics of cryptojacking in the next section, but in the case of cryptojacking without user consent, it is seems natural to us to presuppose users want to be protected. Protection might take a few forms, which we outline here.
+
+\subsection{Obtaining consent}
+
+Cryptojacking tools might attempt to legitimize the practice by first obtaining user consent on a service provider level. An example of this is the Authedmine service from Coinhive discussed previously. Malicious sites might also opt for a service like Authedmine if it is whitelisted on its user's networks and then attempt to circumvent the consent process. For example, consent that requires a click from the user has been shown in some circumstances to be vulnerable to clickjacking attacks~\cite{rydstedt2010busting}.
+
+While cryptojacking is no where near the prevalence of tracking cookies, eventually it might grow into regulatory issues where governmental bodies could use legislative approaches to obtain consent, similar to the provisions many countries now use for cookies (including honouring the `do not track' HTTP header and obtaining click-based consent).
 
 Similar to regulations for cookies and user tracking there is a need to regulate browser mining, primarily to notify users of the existence of these scripts on the webpages they visit. Also, there is a need to standardize this model, so to answer some of these questions: If every website uses a browser miner and users have many tabs open, how are CPU resources shared between them? How will the behaviour of these scripts change based on the device they are running on? If device is on power saving mode, how will that affect the execution of these scripts?
 
