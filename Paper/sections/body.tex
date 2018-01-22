@@ -88,31 +88,27 @@ This type of measurement will become less accurate moving forward. Cryptojacking
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.9\linewidth]{figures/non-coinhive-miners.png}
-\caption{Share of websites using a Coinhive alternative as gathered from PublicWWW~\cite{badpacketspublicwww}.\label{fig:copycat}}
+\caption{Share of websites using a Coinhive alternative as gathered by a researcher from PublicWWW (figure used with permission~\cite{badpacketspublicwww})\label{fig:copycat}}
 \end{figure}
-
-Coinhive has begun to be blocked by enterprises. One example is shown in Figure~\ref{fig:concordia}. This blocking seems to have sent Coinhive operators to lesser known alternatives with the same or similar functionality (see Figure~\ref{fig:copycats}). Coinhive has also reacted by focusing on adding user consent and legitimizing the use of cryptojacking.
-
-
-
-
-\subsection{Clientside Impact}
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.9\linewidth]{figures/usage_of_authedmine_over_time.png}
-	\caption{Usage of AuthedMine Miner scripts in top 1million websites over time.}
+	\caption{Usage of AuthedMine Miner scripts in top one million websites since its introduction.\label{fig:authmine}}
 \end{figure}
 
-Coinhive introduced another domain and service called ``Authedmine'' , which requires user`s consent to start mining in the browser. This service did not get the same attention as the original service, but it did inspire discussions regarding the ethics of such services, which is covered in Discussion section of this paper. (Clickjacking) 
+Coinhive has begun to be blocked by enterprises. One example is shown in Figure~\ref{fig:concordia}. This blocking seems to have sent Coinhive operators to lesser known alternatives with the same or similar functionality (see Figure~\ref{fig:copycats}). Coinhive has also reacted by focusing on adding user consent and legitimizing the use of cryptojacking. It introduced another domain and service called \textit{Authedmine} which requires user's consent to start mining in the browser. This service did not get the same attention as the original service, but it did inspire discussions regarding the ethics of such services which we discuss in Section~\ref{sec:ethics}. Using the same methodology, we used censys.io to measure the prevelance of AuthedMine and so our results in Figure~\ref{fig:authmine}. 
 
-Most of these scripts discovered were configured to use around 25\% of user`s CPU, which can be justified as it will be under the threshold of attracting the user`s attention, and it could be argued as fair-usage of their hardware. During the first few days, however, there were some reports of 100\% CPU usage when visiting websites containing these scripts~\cite{piratesbayblog}, which can be characterized as malicious. By default, the Coinhive JavaScript library will use all available CPU resources available. The user implementing the script must include a throttle value to reduce the client-side CPU usage during mining operations.
+\subsection{Client impact}
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=\linewidth]{figures/windows_cpu_usage.png}
-	\caption{Comparison of CPU usage of browser without and with browser mining enabled}
+	\caption{Comparison of CPU usage of browser without and with browser mining enabled.\label{fig:cpu}}
 \end{figure}
+
+Most coinjacking scripts discovered were configured to use around 25\% of user's CPU, which can be justified as it will be under the threshold of attracting the user's attention, and it could be argued as fair-usage of their hardware. During the first few days, however, there were some reports of 100\% CPU usage when visiting websites containing these scripts~\cite{piratesbayblog}, which can be characterized as malicious. By default, the Coinhive JavaScript library will use all available CPU resources available. The user implementing the script must include a throttle value to reduce the client-side CPU usage during mining operations. We show an example in Figure~\ref{fig:cpu}.
+
 
 \subsection{Profitability}
 \label{profitabilitexperiment}
@@ -145,6 +141,7 @@ This experiment showed that even though the number of users visiting was signifi
 
 
 \section{Ethical Considerations}
+\label{sec:ethics}
 
 The opinion of the authors of this paper maintain that users should be given the option to enable the miner code in their browser only with some benefit to their experience on the website. Recent polls support this notion, such as the one conducted by Bleeping Computer, which found that ``many users said they are OK with websites mining Monero in the background if they don`t see ads anymore''~\cite{bleepingcomputerminers}. Another example would be granting access to premium features of the website such as journal articles behind a paywall, or streaming in high-definition. The website could also allow the user to participate in mining rewards by allocating a large portion of their CPU resources to the activity of mining, which would benefit both parties. By notifying the user of the potentials of such activity, and allowing them to make a choice to participate, the website maintains trust in their relationship with the user while also benefiting from a new source of revenue. By foregoing disclaiming this new activity, which can have harmful effects, the website will gain a new revenue stream for a short time only while sacrificing their reputation in the long term. Coinhive`s recent response to the market`s negative reaction by releasing AuthedMine, which enforces user consent before enabling any mining JavaScript code, justifies this rationale. However, before consented browser mining could develop into a sustainable model, its security implications and user impact should be addressed.
 
