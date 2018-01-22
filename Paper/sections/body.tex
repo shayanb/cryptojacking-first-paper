@@ -54,12 +54,6 @@ A user's web traffic is often routed through intermediaries that may have plaint
 \subsection{Prevalence of Coinhive and alternatives}
 
 \begin{figure}[t]
-\centering
-\includegraphics[width=0.9\linewidth]{figures/usage_over_time2.png}
-\caption{Google Trend over last 12 months: there has been more interest in Coinhive than the broader, related search term ``Browser mining''. Comparing to other services offering Monero browser mining API, Coinhive had the advantage of being the first to offer the service. \label{fig:trend}}
-\end{figure}
-
-\begin{figure}[t]
 \begin{tabular}{c}
 \begin{lstlisting}[language=sql]
 SELECT domain, tags, p80.http_www.get.headers.content_language, p80.http_www.get.headers.server, p80.http.get.headers.x_powered_by, p80.http.get.title, p80.http_www.get.body as wwwbody, p80.http.get.body as plainbody 
@@ -69,36 +63,6 @@ WHERE STRPOS(p80.http.get.body, coinhive.min.js) > 0 or STRPOS(p80.http_www.get.
 \end{tabular}
 \caption{A BigQuery SQL query to find websites that embed the Coinhive script using a dataset of the top one million sites from censys.io. \label{lst:bigquery}}
 \end{figure}
-
-
-The same methodology was used on other datasets, such as PublicWWW\footnote{Search Engine for Source Code \url{https://publicwww.com/}}  to find the usage of Coinhive and other similar services over the internet. Table~\ref{tab:findcoinhive} shows the keywords used to identify these services, however as discussed further, this method might not be usable in near future as such services are using obfuscation methods to hide their scripts. The result can be found on Figure~\ref{fig:coinhivevscopycats} and Figure~\ref{fig:copycat}.
-
-
-
-\begin{table}[]
-\centering
-\caption{Cryptojacking data was gathered by totalling the number of websites which had the following libraries in their source codes, indexed by PublicWWW by 12/24/2017. Figure~\ref{fig:coinhivevscopycats} and Figure~\ref{fig:copycat} are visualizations of these result.}
-\label{tab:findcoinhive}
-\begin{tabular}{|cc|c|}
-\hline
-\textbf{Website} & \textbf{Results} & \textbf{Query Parameter}  \\ \hline
-Coinhive & 30611 & `coinhive.min.js`   \\  \hline
-JSEcoin & 1131 & `load.jsecoin.com`   \\  \hline
-Crypto-Loot & 695 & `CryptoLoot.Anonymous`  \\  \hline
-Minr & 324 & `minr.pw`,`st.kjli.fi`, \\
-~  & ~ &  `abc.pema.cl`,`metrika.ron.si`, \\  
-~  & ~ &  `cdn.rove.cl`,`host.d-ns.ga`, \\  
-~  & ~ &  `static.hk.rs`,`hallaert.online`, \\  
-~  & ~ &  `cnt.statistic.date`,`cdn.static-cnt.bid` \\     \hline
-CoinImp & 317 &`www.coinimp.com/scripts/min.js`,  \\  \hline
-~  & ~ &  `www.hashing.win` \\     \hline
-ProjectPoi (PPoi) & 116 & `projectpoi.min`  \\  \hline
-AFMiner & 46 & `afminer.com/code/miner.php`	  \\  \hline
-Papoto & 42 & `papoto.com/lib/papoto.js`  \\ \hline
-\end{tabular}
-\end{table}
-
-
 
 \begin{figure}[t]
 \centering
@@ -116,6 +80,27 @@ This type of measurement will become less accurate moving forward. Cryptojacking
 \caption{Our university has categorized the coinhive.com website as malicious and has blocked it.\label{fig:concordia}}
 \end{figure}
 
+\begin{table}[t]
+\centering
+\begin{tabular}{|cc|c|}
+\hline
+\textbf{Website} & \textbf{Results} & \textbf{Query Parameter}  \\ \hline
+Coinhive & 30611 & `coinhive.min.js`   \\  \hline
+JSEcoin & 1131 & `load.jsecoin.com`   \\  \hline
+Crypto-Loot & 695 & `CryptoLoot.Anonymous`  \\  \hline
+Minr & 324 & `minr.pw`,`st.kjli.fi`, \\
+~  & ~ &  `abc.pema.cl`,`metrika.ron.si`, \\  
+~  & ~ &  `cdn.rove.cl`,`host.d-ns.ga`, \\  
+~  & ~ &  `static.hk.rs`,`hallaert.online`, \\  
+~  & ~ &  `cnt.statistic.date`,`cdn.static-cnt.bid` \\     \hline
+CoinImp & 317 &`www.coinimp.com/scripts/min.js`,  \\  \hline
+~  & ~ &  `www.hashing.win` \\     \hline
+ProjectPoi (PPoi) & 116 & `projectpoi.min`  \\  \hline
+AFMiner & 46 & `afminer.com/code/miner.php`	  \\  \hline
+Papoto & 42 & `papoto.com/lib/papoto.js`  \\ \hline
+\end{tabular}
+\caption{Cryptojacking data was gathered by totalling the number of websites which had the following libraries in their source codes, indexed by PublicWWW by 12/24/2017. Figure~\ref{fig:coinhivevscopycats} and Figure~\ref{fig:copycat} are visualizations of these result.\label{tab:findcoinhive}}
+\end{table}
 
 \begin{figure}[t]
 \centering
@@ -135,7 +120,17 @@ This type of measurement will become less accurate moving forward. Cryptojacking
 	\caption{Usage of AuthedMine Miner scripts in top one million websites since its introduction.\label{fig:authmine}}
 \end{figure}
 
-Coinhive has begun to be blocked by enterprises. One example is shown in Figure~\ref{fig:concordia}. This blocking seems to have sent Coinhive operators to lesser known alternatives with the same or similar functionality (see Figure~\ref{fig:copycat}). Coinhive has also reacted by focusing on adding user consent and legitimizing the use of cryptojacking. It introduced another domain and service called \textit{Authedmine}, which requires user's consent to start mining in the browser. This service did not get the same attention as the original service, but it did inspire discussions regarding the ethics of such services, which is discussed in Section~\ref{sec:ethics}. Using the same methodology, censys.io was used to measure the prevalence of AuthedMine and show the results in Figure~\ref{fig:authmine}. 
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.9\linewidth]{figures/usage_over_time2.png}
+\caption{Google Trend over last 12 months: there has been more interest in Coinhive than the broader, related search term ``Browser mining''. Comparing to other services offering Monero browser mining API, Coinhive had the advantage of being the first to offer the service. \label{fig:trend}}
+\end{figure}
+
+
+
+Coinhive has begun to be blocked by enterprises. One example is shown in Figure~\ref{fig:concordia}. This blocking seems to have sent Coinhive operators to lesser known alternatives with the same or similar functionality. We used the same methodology on another dataset, PublicWWW\footnote{Search Engine for Source Code \url{https://publicwww.com/}} to find the usage of Coinhive and its alternatives the internet. Table~\ref{tab:findcoinhive} shows the keywords used to identify these services. The result can be found on Figure~\ref{fig:coinhivevscopycats} and Figure~\ref{fig:copycat}.
+
+Coinhive has also reacted by focusing on adding user consent and legitimizing the use of cryptojacking. It introduced another domain and service called \textit{Authedmine}, which requires user's consent to start mining in the browser. This service did not get the same attention as the original service, but it did inspire discussions regarding the ethics of such services, which is discussed in Section~\ref{sec:ethics}. Using the same methodology, censys.io was used to measure the prevalence of AuthedMine and show the results in Figure~\ref{fig:authmine}. 
 
 \subsection{Client impact}
 
