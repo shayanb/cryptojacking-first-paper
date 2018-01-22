@@ -27,7 +27,7 @@ Cryptojacking was not limited to websites in 2017. The chrome extension Archive 
 
 \subsection{Breaches} 
 
-If an attackers is able to breach principle servers, websites, extensions, or the scripting services they use, they can inject cryptojacking scripts that will impact the site's users without the site's knowledge or consent. For example, a researcher found a malicious modification to webchat system LiveHelpNow's SDK; it resulted in unsolicited mining across all websites using their char support service~\cite{chatsupporthack}. In another example, Coinhive was found on the political fact-checking website PolitiFact.\footnote{PolitiFact: Fact-checking US politics.\url{https://politifact.com/}} A compromised JavaScript library was found to be injecting the cryptojacking scripts. The malicious code remained on the site for at least four hours before it was removed~\cite{politifactcoinhive}. PolitiFact executive director stated ``Hackers were able to install their script on the fact-checking website after discovering a misconfigured cloud-computing server''~\cite{politifactcoinhivewsj}.
+If an attackers is able to breach principle servers, websites, extensions, or the scripting services they use, they can inject cryptojacking scripts that will impact the site's users without the site's knowledge or consent. For example, a researcher found a malicious modification to webchat system LiveHelpNow's SDK; it resulted in unsolicited mining across all websites using their char support service~\cite{chatsupporthack}. In another example, Coinhive was found on the political fact-checking website PolitiFact.\footnote{PolitiFact: Fact-checking US politics.\url{https://politifact.com/}} A compromised JavaScript library was found to be injecting the cryptojacking scripts. The malicious code remained on the site for at least four hours before it was removed~\cite{politifactcoinhive}. PolitiFact executive director stated, ``Hackers were able to install their script on the fact-checking website after discovering a misconfigured cloud-computing server''~\cite{politifactcoinhivewsj}.
 
 
 \subsection{Man-in-the-middle} 
@@ -66,7 +66,7 @@ FROM censys-io.domain_public.20171123
 WHERE STRPOS(p80.http.get.body, coinhive.min.js) > 0 or STRPOS(p80.http_www.get.body, coinhive.min.js) >0)
 \end{lstlisting}
 \end{tabular}
-\caption{A BigQuery SQL query to find websites that embed the CoinHive script using a dataset of the top one million sites from censys.io. \label{lst:bigquery}}
+\caption{A BigQuery SQL query to find websites that embed the Coinhive script using a dataset of the top one million sites from censys.io. \label{lst:bigquery}}
 \end{figure}
 
 
