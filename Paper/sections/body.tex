@@ -27,12 +27,12 @@ Cryptojacking was not limited to websites in 2017. The chrome extension Archive 
 
 \subsection{Breaches} 
 
-If an attackers is able to breach principle websites, extensions, or the scripting services they use, they can inject cryptojacking scripts that will impact the site's users without the site's knowledge or consent. For example, a researcher found a malicious modification to webchat system LiveHelpNow's SDK; it resulted in unsolicited mining across all websites using their char support service~\cite{chatsupporthack}. In another example, Coinhive was found on the political fact-checking website Politifact.\footnote{PolitiFact: Fact-checking US politics.\url{https://politifact.com/}} A compromised JavaScript library was found to be injecting the cryptojacking scripts. The malicious code remained on the site for at least four hours before it was removed~\cite{politifactcoinhive}. PolitiFact Executive Director stated ``Hackers were able to install their script on the fact-checking website after discovering a misconfigured cloud-computing server''~\cite{politifactcoinhivewsj}.
+If an attackers is able to breach principle servers, websites, extensions, or the scripting services they use, they can inject cryptojacking scripts that will impact the site's users without the site's knowledge or consent. For example, a researcher found a malicious modification to webchat system LiveHelpNow's SDK; it resulted in unsolicited mining across all websites using their char support service~\cite{chatsupporthack}. In another example, Coinhive was found on the political fact-checking website Politifact.\footnote{PolitiFact: Fact-checking US politics.\url{https://politifact.com/}} A compromised JavaScript library was found to be injecting the cryptojacking scripts. The malicious code remained on the site for at least four hours before it was removed~\cite{politifactcoinhive}. PolitiFact Executive Director stated ``Hackers were able to install their script on the fact-checking website after discovering a misconfigured cloud-computing server''~\cite{politifactcoinhivewsj}.
 
 
 \subsection{Man-in-the-middle} 
 
-A user's webtraffic is often routed through intermediaries that may have plaintext access to content. For example, internet service providers or free public wireless routers can inject cryptojacking scripts into non-HTTPS traffic. Advertisement code injection has been seen in practice ~\cite{vergeadinjection}. There have been assertions of similar injections of browser mining scripts at certain Starbucks free Wi-Fi hotspots.\footnote{\url{https://twitter.com/imnoah/status/936948776119537665}}
+A user's web traffic is often routed through intermediaries that may have plaintext access to content. For example, internet service providers or free public wireless routers can inject cryptojacking scripts into non-HTTPS traffic. Advertisement code injection has been seen in practice ~\cite{vergeadinjection}. There have been assertions of similar injections of browser mining scripts at certain Starbucks free Wi-Fi hotspots.\footnote{\url{https://twitter.com/imnoah/status/936948776119537665}}
 
 
 
@@ -76,7 +76,7 @@ The same methodology was used on other datasets, such as PublicWWW\footnote{Sear
 
 \begin{table}[]
 \centering
-\caption{Coinhive miner data was gathered by totalling the number of websites, indexed by PublicWWW by 12/24/2017, which had the following libraries in their source codes:  }
+\caption{Cryptojacking data was gathered by totalling the number of websites which had the following libraries in their source codes, indexed by PublicWWW by 12/24/2017. Figure~\ref{fig:coinhivevscopycats} and Figure~\ref{fig:copycat} are visualizations of these result.}
 \label{tab:findcoinhive}
 \begin{tabular}{|cc|c|}
 \hline
@@ -118,13 +118,13 @@ This type of measurement will become less accurate moving forward. Cryptojacking
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.9\linewidth]{figures/coinhive-miners-pie.png}
-\caption{Share of websites using a Javascript cryptocurrency miner \label{fig:coinhivevscopycats}}
+\caption{Share of websites using a Javascript cryptocurrency miner, details in Table~\ref{tab:findcoinhive}  \label{fig:coinhivevscopycats}}
 \end{figure}
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.9\linewidth]{figures/non-coinhive-miners-pie.png}
-\caption{Share of websites using a Coinhive alternative \label{fig:copycat}}
+\caption{Share of websites using a Coinhive alternatives, details in Table~\ref{tab:findcoinhive}  \label{fig:copycat}}
 \end{figure}
 
 \begin{figure}[t]
@@ -133,7 +133,7 @@ This type of measurement will become less accurate moving forward. Cryptojacking
 	\caption{Usage of AuthedMine Miner scripts in top one million websites since its introduction.\label{fig:authmine}}
 \end{figure}
 
-Coinhive has begun to be blocked by enterprises. One example is shown in Figure~\ref{fig:concordia}. This blocking seems to have sent Coinhive operators to lesser known alternatives with the same or similar functionality (see Figure~\ref{fig:copycats}). Coinhive has also reacted by focusing on adding user consent and legitimizing the use of cryptojacking. It introduced another domain and service called \textit{Authedmine} which requires user's consent to start mining in the browser. This service did not get the same attention as the original service, but it did inspire discussions regarding the ethics of such services which we discuss in Section~\ref{sec:ethics}. Using the same methodology, we used censys.io to measure the prevelance of AuthedMine and so our results in Figure~\ref{fig:authmine}. 
+Coinhive has begun to be blocked by enterprises. One example is shown in Figure~\ref{fig:concordia}. This blocking seems to have sent Coinhive operators to lesser known alternatives with the same or similar functionality (see Figure~\ref{fig:copycats}). Coinhive has also reacted by focusing on adding user consent and legitimizing the use of cryptojacking. It introduced another domain and service called \textit{Authedmine} which requires user's consent to start mining in the browser. This service did not get the same attention as the original service, but it did inspire discussions regarding the ethics of such services which we discuss in Section~\ref{sec:ethics}. Using the same methodology, we used censys.io to measure the prevalence of AuthedMine and so our results in Figure~\ref{fig:authmine}. 
 
 \subsection{Client impact}
 
@@ -143,7 +143,7 @@ Coinhive has begun to be blocked by enterprises. One example is shown in Figure~
 	\caption{Comparison of CPU usage of browser without and with browser mining enabled.\label{fig:cpu}}
 \end{figure}
 
-Most coinjacking scripts discovered were configured to use around 25\% of user's CPU, which can be justified as it will be under the threshold of attracting the user's attention, and it could be argued as fair-usage of their hardware. During the first few days, however, there were some reports of 100\% CPU usage when visiting websites containing these scripts~\cite{piratesbayblog}, which can be characterized as malicious. By default, the Coinhive JavaScript library will use all available CPU resources available. The user implementing the script must include a throttle value to reduce the client-side CPU usage during mining operations. We show an example in Figure~\ref{fig:cpu}.
+Most cryptojacking scripts discovered were configured to use around 25\% of user's CPU, which can be justified as it will be under the threshold of attracting the user's attention, and it could be argued as fair-usage of their hardware. During the first few days, however, there were some reports of 100\% CPU usage when visiting websites containing these scripts~\cite{piratesbayblog}, which can be characterized as malicious. By default, the Coinhive JavaScript library will use all available CPU resources available. The user implementing the script must include a throttle value to reduce the client-side CPU usage during mining operations. We show an example in Figure~\ref{fig:cpu}.
 
 
 \subsection{Profitability}
