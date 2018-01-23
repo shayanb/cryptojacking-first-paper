@@ -53,7 +53,7 @@ A user's web traffic is often routed through intermediaries that may have plaint
 
 \subsection{Prevalence of Coinhive and alternatives}
 
-\begin{figure}[t]
+\begin{figure*}[t]
 \begin{tabular}{c}
 \begin{lstlisting}[language=sql]
 SELECT domain, tags, p80.http_www.get.headers.content_language, p80.http_www.get.headers.server, p80.http.get.headers.x_powered_by, p80.http.get.title, p80.http_www.get.body as wwwbody, p80.http.get.body as plainbody 
@@ -62,7 +62,7 @@ WHERE STRPOS(p80.http.get.body, coinhive.min.js) > 0 or STRPOS(p80.http_www.get.
 \end{lstlisting}
 \end{tabular}
 \caption{A BigQuery SQL query to find websites that embed the Coinhive script using a dataset of the top one million sites from censys.io. \label{lst:bigquery}}
-\end{figure}
+\end{figure*}
 
 \begin{figure}[t]
 \centering
@@ -70,7 +70,7 @@ WHERE STRPOS(p80.http.get.body, coinhive.min.js) > 0 or STRPOS(p80.http_www.get.
 \caption{The number of instances of the Coinhive miner scripts found using the query in Figure~\ref{lst:bigquery} in top one million websites over a three month period beginning with the release of Coinhive in September 2017.\label{fig:topmil}}
 \end{figure}
 
-Based on the fact that Coinhive is the dominant website offering in-browser mining, See Figure~\ref{fig:coinhivevscopycats}, we focus on measuring the prevalence of Coinhive scripts deployed on internet sites. We use the censys.io BigQuery dataset ~\cite{censys15} for the top million sites indexed by Zmap\footnote{\url{https://zmap.io}}. We simply look for the \texttt{coinhive.min.js} script within the body of the website page. The query we use is in Figure~\ref{lst:bigquery} and the results over a two month period are provided in Figure~\ref{fig:topmil}. These findings are corroborated by another search engine, PublicWWW, which indexes the source code of publicly available websites. Using PublicWWW's dataset, over 30,000 websites were found to have the \texttt{coinhive.min.js} library.\footnote{Citation to blog post detailing our results removed for anonymity.} As seen from our data in Figure~\ref{fig:topmil}, the adoption of this script was substantial in the first days of its release. However, progress slowed down at the same time as ad-blockers and organizations started to block Coinhive's website. The initial purpose of this service, as claimed by Coinhive, was to replace ads and cover server costs for webmasters. As the service did not require that websites received user consent before beginning to mine, it started to be used maliciously in users` browsers. This type of usage resulted in Coinhive being included in some company's top-10 most wanted malware list~\cite{checkpoint}.
+Based on the fact that Coinhive is the dominant website offering in-browser mining  (see Figure~\ref{fig:coinhivevscopycats}), we first focus on measuring the prevalence of Coinhive scripts deployed on internet sites. We use the censys.io BigQuery dataset ~\cite{censys15} for the top million sites indexed by Zmap\footnote{\url{https://zmap.io}}. We simply look for the \texttt{coinhive.min.js} script within the body of the website page. The query we use is in Figure~\ref{lst:bigquery} and the results over a two month period are provided in Figure~\ref{fig:topmil}. These findings are corroborated by another search engine, PublicWWW, which indexes the source code of publicly available websites. Using PublicWWW's dataset, over 30,000 websites were found to have the \texttt{coinhive.min.js} library.\footnote{Citation to blog post detailing our results removed for anonymity.} As seen from our data in Figure~\ref{fig:topmil}, the adoption of this script was substantial in the first days of its release. However, progress slowed down at the same time as ad-blockers and organizations started to block Coinhive's website. The initial purpose of this service, as claimed by Coinhive, was to replace ads and cover server costs for webmasters. As the service did not require that websites received user consent before beginning to mine, it started to be used maliciously in users` browsers. This type of usage resulted in Coinhive being included in some company's top-10 most wanted malware list~\cite{checkpoint}.
 
 % JC: After anon, cite ~\cite{badpacketspublicwww}
 
